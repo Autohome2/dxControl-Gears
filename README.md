@@ -1,6 +1,11 @@
 # Speeduino-GearControl
 The Speeduino Gearbox controller module is based on the Gpio from the same family.
-It has the same basic hardware design.
-The module can accept a variety of input types, both analogue (up to 500v peak) and digital.
-Outputs can be high or low side driven or pwm.
+Currently on Mega2560 MCU support is provided but STM32 and Teensy3.X will follow with some mcu specific features added due to the extra processing power those mcu offer. 
+The firmware supports up to 8 forward gears controlled by up to 8 selection solenoids, two torque-convertor lockup solenoids and a further 21 outputs spare capacity for future expansion.
+
+Initially a manual change only standalone unit , later improvements will be link to speeduino , Vss sensors, GPS input ,pwm outputs ,fully automatic operation and CANBUS connectivity etc.
+
+IO pins are selected via board configurations in the same way as GPIO does. 
+The gearbox selection is also made in a similar way with the gearbox config being defined in the utils file.Pre defined gearboxes are selected via TS menu. Curent support is for the A340E with 5r55 and A4ODE support planned to follow ,although any gearbox could be included if defined.
+
 The unit is fully programmable via Tunerstudio.
