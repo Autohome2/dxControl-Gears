@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<msq xmlns="http://www.msefi.com/:msq">
+<bibliography author="TunerStudio MS(Beta) 3.0.28 - EFI Analytics, Inc." tuneComment="" writeDate="Sat Sep 30 01:17:51 BST 2017"/>
+<versionInfo fileFormat="5.0" firmwareInfo="speeduino+201709-GearControl+V0.001" nPages="2" signature="speeduino_GearControl 201709"/>
+<page>
+<pcVariable name="tsCanId">"CAN ID 0"</pcVariable>
+</page>
+<page number="0" size="128">
+<constant name="master_controller_address">"0x230"</constant>
+<constant name="pinLayout">"Mega2560 Gearcontrol v0.1"</constant>
+<constant name="speeduinoConnection">"Not Used"</constant>
+<constant digits="0" name="unused1_4">0.0</constant>
+<constant digits="0" name="unused1_5">0.0</constant>
+<constant digits="0" name="unused1_6">0.0</constant>
+<constant digits="0" name="unused1_7">0.0</constant>
+<constant digits="0" name="unused1_8">15.0</constant>
+<constant name="GearActive1">"On"</constant>
+<constant name="GearActive2">"On"</constant>
+<constant name="GearActive3">"On"</constant>
+<constant name="GearActive4">"Off"</constant>
+<constant name="GearActive5">"Off"</constant>
+<constant name="GearActive6">"Off"</constant>
+<constant name="GearActive7">"Off"</constant>
+<constant name="GearActive8">"Off"</constant>
+<constant name="DoutchanActive1">"On"</constant>
+<constant name="DoutchanActive2">"On"</constant>
+<constant name="DoutchanActive3">"On"</constant>
+<constant name="DoutchanActive4">"On"</constant>
+<constant name="DoutchanActive5">"On"</constant>
+<constant name="DoutchanActive6">"On"</constant>
+<constant name="DoutchanActive7">"Off"</constant>
+<constant name="DoutchanActive8">"Off"</constant>
+<constant name="DoutchanActive9">"Off"</constant>
+<constant name="DoutchanActive10">"Off"</constant>
+<constant name="DoutchanActive11">"Off"</constant>
+<constant name="DoutchanActive12">"Off"</constant>
+<constant name="DoutchanActive13">"On"</constant>
+<constant name="DoutchanActive14">"Off"</constant>
+<constant name="DoutchanActive15">"Off"</constant>
+<constant name="DoutchanActive16">"Off"</constant>
+<constant name="DoutchanActive17">"On"</constant>
+<constant name="DoutchanActive18">"On"</constant>
+<constant name="DoutchanActive19">"On"</constant>
+<constant name="DoutchanActive20">"On"</constant>
+<constant name="DoutchanActive21">"On"</constant>
+<constant name="DoutchanActive22">"On"</constant>
+<constant name="DoutchanActive23">"On"</constant>
+<constant name="DoutchanActive24">"On"</constant>
+<constant name="DoutchanActive25">"On"</constant>
+<constant name="DoutchanActive26">"On"</constant>
+<constant name="DoutchanActive27">"On"</constant>
+<constant name="DoutchanActive28">"On"</constant>
+<constant name="DoutchanActive29">"On"</constant>
+<constant name="DoutchanActive30">"On"</constant>
+<constant name="DoutchanActive31">"3"</constant>
+<constant name="DoutchanActive32">"On"</constant>
+<constant name="DinchanActive1">"On"</constant>
+<constant name="DinchanActive2">"On"</constant>
+<constant name="DinchanActive3">"On"</constant>
+<constant name="DinchanActive4">"On"</constant>
+<constant name="DinchanActive5">"On"</constant>
+<constant name="DinchanActive6">"On"</constant>
+<constant name="DinchanActive7">"On"</constant>
+<constant name="DinchanActive8">"On"</constant>
+<constant name="DinchanActive9">"On"</constant>
+<constant name="DinchanActive10">"On"</constant>
+<constant name="DinchanActive11">"On"</constant>
+<constant name="DinchanActive12">"Off"</constant>
+<constant name="DinchanActive13">"Off"</constant>
+<constant name="DinchanActive14">"Off"</constant>
+<constant name="DinchanActive15">"Off"</constant>
+<constant name="DinchanActive16">"Off"</constant>
+<constant digits="0" name="unused1_16">15.0</constant>
+<constant digits="0" name="unused1_17">0.0</constant>
+<constant name="AinchanActive1">"On"</constant>
+<constant name="AinchanActive2">"On"</constant>
+<constant name="AinchanActive3">"On"</constant>
+<constant name="AinchanActive4">"On"</constant>
+<constant name="AinchanActive5">"Off"</constant>
+<constant name="AinchanActive6">"Off"</constant>
+<constant name="AinchanActive7">"Off"</constant>
+<constant name="AinchanActive8">"Off"</constant>
+<constant name="AinchanActive9">"Off"</constant>
+<constant name="AinchanActive10">"Off"</constant>
+<constant name="AinchanActive11">"Off"</constant>
+<constant name="AinchanActive12">"Off"</constant>
+<constant name="AinchanActive13">"Off"</constant>
+<constant name="AinchanActive14">"Off"</constant>
+<constant name="AinchanActive15">"Off"</constant>
+<constant name="AinchanActive16">"Off"</constant>
+<constant digits="0" name="unused1_20">0.0</constant>
+<constant digits="0" name="unused1_21">0.0</constant>
+<constant name="shiftsolenoid_1">"Out 1"</constant>
+<constant name="shiftsolenoid_1_activestate">"Active High"</constant>
+<constant name="shiftsolenoid_2">"Out 2"</constant>
+<constant name="shiftsolenoid_2_activestate">"Active High"</constant>
+<constant name="shiftsolenoid_3">"Out 1"</constant>
+<constant name="shiftsolenoid_3_activestate">"Active High"</constant>
+<constant name="shiftsolenoid_4">"Out 5"</constant>
+<constant name="shiftsolenoid_4_activestate">"Active High"</constant>
+<constant name="shiftsolenoid_5">"Out 3"</constant>
+<constant name="shiftsolenoid_5_activestate">"Active High"</constant>
+<constant name="shiftsolenoid_6">"Out 4"</constant>
+<constant name="shiftsolenoid_6_activestate">"Active High"</constant>
+<constant name="shiftsolenoid_7">"Out 5"</constant>
+<constant name="shiftsolenoid_7_activestate">"Active High"</constant>
+<constant name="shiftsolenoid_8">"Out 6"</constant>
+<constant name="shiftsolenoid_8_activestate">"Active High"</constant>
+<constant name="lockup_solenoid_1">"Out 3"</constant>
+<constant name="lockup_solenoid_1_activestate">"Active High"</constant>
+<constant name="lockup_solenoid_2">"Out 8"</constant>
+<constant name="lockup_solenoid_2_activestate">"Active High"</constant>
+<constant name="starter_inhibit_out">"Out 4"</constant>
+<constant name="starter_inhibit_out_activestate">"Active High"</constant>
+<constant name="spareOut_11">"Out 2"</constant>
+<constant name="spareOut_11_activestate">"Active High"</constant>
+<constant name="spareOut_12">"Out 3"</constant>
+<constant name="spareOut_12_activestate">"Active High"</constant>
+<constant name="spareOut_13">"Out 4"</constant>
+<constant name="spareOut_13_activestate">"Active High"</constant>
+<constant name="spareOut_14">"Out 3"</constant>
+<constant name="spareOut_14_activestate">"Active High"</constant>
+<constant name="spareOut_15">"Out 8"</constant>
+<constant name="spareOut_16">"Out 2"</constant>
+<constant name="spareOut_17">"Out 2"</constant>
+<constant name="spareOut_18">"Out 3"</constant>
+<constant name="spareOut_19">"Out 4"</constant>
+<constant name="spareOut_20">"Out 3"</constant>
+<constant name="spareOut_21">"Out 6"</constant>
+<constant name="spareOut_22">"Out 1"</constant>
+<constant name="spareOut_23">"Out 8"</constant>
+<constant name="spareOut_24">"Out 2"</constant>
+<constant name="spareOut_25">"Out 1"</constant>
+<constant name="spareOut_26">"Out 1"</constant>
+<constant name="spareOut_27">"Out 1"</constant>
+<constant name="spareOut_28">"Out 8"</constant>
+<constant name="spareOut_29">"Out 2"</constant>
+<constant name="spareOut_30">"Out 4"</constant>
+<constant name="spareOut_31">"Out 2"</constant>
+<constant name="paddle_change_up">"In 1"</constant>
+<constant name="paddle_change_up_activestate">"Active high"</constant>
+<constant name="paddle_change_up_active">"Active"</constant>
+<constant name="paddle_change_down">"In 2"</constant>
+<constant name="paddle_change_down_activestate">"Active"</constant>
+<constant name="park_in">"In 3"</constant>
+<constant name="reverse_in">"In 4"</constant>
+<constant name="neutral_in">"In 5"</constant>
+<constant name="drive_in">"In 6"</constant>
+<constant name="gear1_in">"In 7"</constant>
+<constant name="gear2_in">"In 8"</constant>
+<constant name="gear3_in">"In 9"</constant>
+<constant name="gear4_in">"In 10"</constant>
+<constant name="gear5_in">"In 1"</constant>
+<constant name="gear6_in">"In 7"</constant>
+<constant name="gear7_in">"In 6"</constant>
+<constant name="gear8_in">"In 1"</constant>
+<constant name="lockup_overide">"In 11"</constant>
+<constant name="gearbox_type">"A340E"</constant>
+<constant name="FunctionActive0">"On"</constant>
+<constant name="FunctionActive1">"On"</constant>
+<constant name="FunctionActive2">"Off"</constant>
+<constant name="FunctionActive3">"Off"</constant>
+<constant name="FunctionActive4">"Off"</constant>
+<constant name="FunctionActive5">"Off"</constant>
+<constant name="FunctionActive6">"Off"</constant>
+<constant name="FunctionActive7">"Off"</constant>
+<constant name="FunctionActive8">"On"</constant>
+<constant name="FunctionActive9">"Off"</constant>
+<constant name="FunctionActive10">"On"</constant>
+<constant name="FunctionActive11">"Off"</constant>
+<constant name="FunctionActive12">"Off"</constant>
+<constant name="FunctionActive13">"Off"</constant>
+<constant name="FunctionActive14">"Off"</constant>
+<constant name="FunctionActive15">"Off"</constant>
+<constant name="FunctionActive16">"Off"</constant>
+<constant name="FunctionActive17">"Off"</constant>
+<constant name="FunctionActive18">"Off"</constant>
+<constant name="FunctionActive19">"Off"</constant>
+<constant name="FunctionActive20">"Off"</constant>
+<constant name="FunctionActive21">"Off"</constant>
+<constant name="FunctionActive22">"Off"</constant>
+<constant name="FunctionActive23">"Off"</constant>
+<constant name="FunctionActive24">"Off"</constant>
+<constant name="FunctionActive25">"Off"</constant>
+<constant name="FunctionActive26">"Off"</constant>
+<constant name="FunctionActive27">"Off"</constant>
+<constant name="FunctionActive28">"Off"</constant>
+<constant name="FunctionActive29">"Off"</constant>
+<constant name="FunctionActive30">"Off"</constant>
+<constant name="FunctionActive31">"Off"</constant>
+<constant digits="0" name="unused1_74">255.0</constant>
+<constant digits="0" name="unused1_75">1.0</constant>
+<constant digits="0" name="unused1_76">1.0</constant>
+<constant digits="0" name="unused1_77">1.0</constant>
+<constant digits="0" name="unused1_78">1.0</constant>
+<constant digits="0" name="unused1_79">1.0</constant>
+<constant digits="0" name="unused1_80">1.0</constant>
+<constant digits="0" name="unused1_81">1.0</constant>
+<constant digits="0" name="unused1_82">1.0</constant>
+<constant digits="0" name="unused1_83">1.0</constant>
+<constant digits="0" name="unused1_84">1.0</constant>
+<constant digits="0" name="unused1_85">1.0</constant>
+<constant digits="0" name="unused1_86">1.0</constant>
+<constant digits="0" name="unused1_87">1.0</constant>
+<constant digits="0" name="unused1_88">0.0</constant>
+<constant digits="0" name="unused1_89">0.0</constant>
+<constant digits="0" name="unused1_90">0.0</constant>
+<constant digits="0" name="unused1_91">0.0</constant>
+<constant digits="0" name="unused1_92">0.0</constant>
+<constant digits="0" name="unused1_93">0.0</constant>
+<constant digits="0" name="unused1_94">0.0</constant>
+<constant digits="0" name="unused1_95">0.0</constant>
+<constant digits="0" name="unused1_96">0.0</constant>
+<constant digits="0" name="unused1_97">0.0</constant>
+<constant digits="0" name="unused1_98">0.0</constant>
+<constant digits="0" name="unused1_99">0.0</constant>
+<constant name="display_type">"128x64 oled(ssh1106)"</constant>
+<constant name="manual_auto_status">"Manual"</constant>
+<constant name="current_selector_status">"ERROR"</constant>
+<constant name="current_gear_status">"1"</constant>
+<constant digits="0" name="unused1_104">80.0</constant>
+<constant digits="0" name="unused1_105">80.0</constant>
+<constant digits="0" name="unused1_106">0.0</constant>
+<constant digits="0" name="unused1_107">0.0</constant>
+<constant digits="0" name="unused1_108">0.0</constant>
+<constant digits="0" name="unused1_109">0.0</constant>
+<constant digits="0" name="unused1_110">0.0</constant>
+<constant digits="0" name="unused1_111">0.0</constant>
+<constant digits="0" name="unused1_112">0.0</constant>
+<constant digits="0" name="unused1_113">0.0</constant>
+<constant digits="0" name="unused1_114">0.0</constant>
+<constant digits="0" name="unused1_115">0.0</constant>
+<constant digits="0" name="unused1_116">0.0</constant>
+<constant digits="0" name="unused1_117">0.0</constant>
+<constant digits="0" name="unused1_118">0.0</constant>
+<constant digits="0" name="unused1_119">0.0</constant>
+<constant digits="0" name="unused1_120">200.0</constant>
+<constant digits="0" name="unused1_121">0.0</constant>
+<constant digits="0" name="unused1_122">0.0</constant>
+<constant digits="0" name="unused1_123">0.0</constant>
+<constant digits="0" name="unused1_124">109.0</constant>
+<constant digits="0" name="unused1_125">0.0</constant>
+<constant digits="0" name="unused1_126">1.0</constant>
+<constant digits="0" name="unused1_127">1.0</constant>
+</page>
+<page number="1" size="256">
+<constant cols="1" digits="0" name="port_Enabled" rows="208" units="on/off">
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         38.0 
+         38.0 
+         38.0 
+         38.0 
+         38.0 
+         38.0 
+         38.0 
+         38.0 
+         38.0 
+         38.0 
+         38.0 
+         38.0 
+         38.0 
+         38.0 
+         38.0 
+         38.0 
+         255.0 
+         255.0 
+         255.0 
+         255.0 
+         255.0 
+         255.0 
+         255.0 
+         255.0 
+         255.0 
+         255.0 
+         255.0 
+         255.0 
+         255.0 
+         255.0 
+         255.0 
+         255.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         1.0 
+         1.0 
+         1.0 
+         1.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         130.0 
+         130.0 
+         130.0 
+         130.0 
+         129.0 
+         129.0 
+         129.0 
+         129.0 
+         129.0 
+         129.0 
+         129.0 
+         129.0 
+         129.0 
+         129.0 
+         129.0 
+         129.0 
+         18.0 
+         0.0 
+         18.0 
+         0.0 
+         18.0 
+         0.0 
+         18.0 
+         0.0 
+         13.0 
+         0.0 
+         13.0 
+         0.0 
+         13.0 
+         0.0 
+         13.0 
+         0.0 
+         13.0 
+         0.0 
+         13.0 
+         0.0 
+         13.0 
+         0.0 
+         13.0 
+         0.0 
+         13.0 
+         0.0 
+         13.0 
+         0.0 
+         13.0 
+         0.0 
+         13.0 
+         0.0 
+         1.0 
+         0.0 
+         2.0 
+         0.0 
+         4.0 
+         0.0 
+         8.0 
+         0.0 
+         1.0 
+         0.0 
+         1.0 
+         0.0 
+         1.0 
+         0.0 
+         1.0 
+         0.0 
+         1.0 
+         0.0 
+         1.0 
+         0.0 
+         1.0 
+         0.0 
+         1.0 
+         0.0 
+         1.0 
+         0.0 
+         1.0 
+         0.0 
+         1.0 
+         0.0 
+         1.0 
+         0.0 
+         1.0 
+         0.0 
+         1.0 
+         0.0 
+         1.0 
+         0.0 
+         1.0 
+         0.0 
+         1.0 
+         0.0 
+         1.0 
+         0.0 
+         1.0 
+         0.0 
+         1.0 
+         0.0 
+         1.0 
+         0.0 
+         1.0 
+         0.0 
+         1.0 
+         0.0 
+         1.0 
+         0.0 
+         1.0 
+         0.0 
+         1.0 
+         0.0 
+         1.0 
+         0.0 
+         1.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+      </constant>
+<constant digits="0" name="port_Condition" rows="1">
+         38.0 38.0 38.0 38.0 38.0 38.0 38.0 38.0 38.0 38.0 38.0 38.0 38.0 38.0 38.0 38.0 
+      </constant>
+<constant cols="1" digits="0" name="port_Condition_relationship" rows="16">
+         255.0 
+         255.0 
+         255.0 
+         255.0 
+         255.0 
+         255.0 
+         255.0 
+         255.0 
+         255.0 
+         255.0 
+         255.0 
+         255.0 
+         255.0 
+         255.0 
+         255.0 
+         255.0 
+      </constant>
+<constant cols="1" digits="0" name="port_InitValue" rows="16">
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+      </constant>
+<constant cols="1" digits="0" name="port_PortValue" rows="16">
+         1.0 
+         1.0 
+         1.0 
+         1.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+      </constant>
+<constant digits="0" name="port_OutSize" rows="1">
+         130.0 130.0 130.0 130.0 129.0 129.0 129.0 129.0 129.0 129.0 129.0 129.0 129.0 129.0 129.0 129.0 
+      </constant>
+<constant digits="0" name="port_OutOffset" rows="1">
+         18.0 18.0 18.0 18.0 13.0 13.0 13.0 13.0 13.0 13.0 13.0 13.0 13.0 13.0 13.0 13.0 
+      </constant>
+<constant digits="0" name="port_Threshold" rows="1">
+         1.0 2.0 4.0 8.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 
+      </constant>
+<constant digits="0" name="port_Hysteresis" rows="1">
+         1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 
+      </constant>
+<constant digits="0" name="port_CanId" rows="1">
+         0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+      </constant>
+<constant digits="0" name="unused2_224">39.0</constant>
+<constant digits="0" name="unused2_225">39.0</constant>
+<constant digits="0" name="unused2_226">39.0</constant>
+<constant digits="0" name="unused2_227">39.0</constant>
+<constant digits="0" name="unused2_228">39.0</constant>
+<constant digits="0" name="unused2_229">39.0</constant>
+<constant digits="0" name="unused2_230">39.0</constant>
+<constant digits="0" name="unused2_231">39.0</constant>
+<constant digits="0" name="unused2_232">39.0</constant>
+<constant digits="0" name="unused2_233">39.0</constant>
+<constant digits="0" name="unused2_234">39.0</constant>
+<constant digits="0" name="unused2_235">39.0</constant>
+<constant digits="0" name="unused2_236">39.0</constant>
+<constant digits="0" name="unused2_237">39.0</constant>
+<constant digits="0" name="unused2_238">39.0</constant>
+<constant digits="0" name="unused2_239">39.0</constant>
+<constant digits="0" name="unused2_240">39.0</constant>
+<constant digits="0" name="unused2_241">39.0</constant>
+<constant digits="0" name="unused2_242">39.0</constant>
+<constant digits="0" name="unused2_243">39.0</constant>
+<constant digits="0" name="unused2_244">39.0</constant>
+<constant digits="0" name="unused2_245">39.0</constant>
+<constant digits="0" name="unused2_246">39.0</constant>
+<constant digits="0" name="unused2_247">39.0</constant>
+<constant digits="0" name="unused2_248">39.0</constant>
+<constant digits="0" name="unused2_249">39.0</constant>
+<constant digits="0" name="unused2_250">39.0</constant>
+<constant digits="0" name="unused2_251">39.0</constant>
+<constant digits="0" name="unused2_252">39.0</constant>
+<constant digits="0" name="unused2_253">39.0</constant>
+<constant digits="0" name="unused2_254">39.0</constant>
+<constant digits="0" name="unused2_255">39.0</constant>
+<constant cols="1" digits="0" name="UNALLOCATED_SPACE_1_0" rows="16" units="RAW">
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         0.0 
+         1.0 
+         1.0 
+         0.0 
+         0.0 
+         255.0 
+         255.0 
+         255.0 
+         255.0 
+         255.0 
+         255.0 
+         255.0 
+      </constant>
+</page>
+<settings Comment="These setting are only used if this msq is opened without a project.">
+<setting name="enablehardware_test" value="enablehardware_test"/>
+<setting name="CAN_COMMANDS_OFF" value="CAN_COMMANDS_OFF"/>
+</settings>
+<userComments Comment="These are user comments that can be related to a particular setting or dialog."/>
+</msq>
