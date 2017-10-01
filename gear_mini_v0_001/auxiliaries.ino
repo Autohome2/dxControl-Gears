@@ -131,8 +131,8 @@ void porteditorOutput()
 {
   //currentStatus.dev1 = configPage2.port_OutOffset[portX];
  uint8_t checkcondloop = 0;
-              int16_t offValue1;
-              int16_t offValue2;
+              uint16_t offValue1;
+              uint16_t offValue2;
               //first get the conditon checks into flag array for current io output channel (0 is first condition, 1 is second)
             if (!((configPage2.port_OutOffset[portX] == 13) ||(configPage2.port_OutOffset[portX] == 14)))
               {  
@@ -555,7 +555,7 @@ void gearStatus()
                   else
                     {
                       //pin was low and is now high!
-                      currentStatus.change_up_last == currentStatus.change_up_current;
+                      currentStatus.change_up_last = currentStatus.change_up_current;
                       currentStatus.change_up_current = 1;   
                     }
                 }    
@@ -586,7 +586,7 @@ void gearStatus()
                   else
                     {
                       //pin was low and is now high!
-                      currentStatus.change_down_last == currentStatus.change_down_current;
+                      currentStatus.change_down_last = currentStatus.change_down_current;
                       currentStatus.change_down_current = 1;   
                     }
                 }

@@ -172,6 +172,53 @@ void setGearboxConfig()
             rev_gear = 1;
             
       break;
+      
+      case 3: //HR16DE 4speed
+            //outputs
+            shiftsolenoid[1] = 1;            // shift shiftsolenoid active == 1 else not used == 255
+            shiftsolenoid[2] = 1;
+            shiftsolenoid[3] = 255;
+            shiftsolenoid[4] = 255;
+            shiftsolenoid[5] = 255;
+            shiftsolenoid[6] = 255;
+            shiftsolenoid[7] = 255;
+            shiftsolenoid[8] = 255;
+            lockup_solenoid[1] = 1;     //
+            lockup_solenoid[2] = 255;     // lockup solenoid pin active
+            starter_inhibit = 1;        //inhibit relay use enable/disable
+            spareOut[12] = 255;
+            spareOut[13] = 255;
+            spareOut[14] = 255;
+            spareOut[15] = 255;
+            spareOut[16] = 255;
+            spareOut[17] = 255;
+            spareOut[18] = 255;
+            spareOut[19] = 255;
+            spareOut[20] = 255;
+            spareOut[21] = 255;
+            spareOut[22] = 255;
+            spareOut[23] = 255;
+            spareOut[24] = 255;
+            spareOut[25] = 255;
+            spareOut[26] = 255;
+            spareOut[27] = 255;
+            spareOut[28] = 255;
+            spareOut[29] = 255;
+            spareOut[30] = 255;
+            spareOut[31] = 255;
+            spareOut[32] = 255;
+            //shift pattern
+            gear[1] = 3;                // solenoid pattern 
+            gear[2] = 2;                // solenoid pattern 
+            gear[3] = 0;                // solenoid pattern 
+            gear[4] = 1;
+            gear[5] = 255;
+            gear[6] = 255;
+            gear[7] = 255;
+            gear[8] = 255;
+            rev_gear = 1;
+            
+      break;
     }
 }
 
