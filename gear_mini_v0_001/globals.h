@@ -128,8 +128,10 @@ struct statuses {
  volatile uint8_t manual_changed;
  volatile uint8_t auto_changed;
  volatile uint8_t GearNow;                  // the numeric gear when forward ie 1-8
- volatile uint8_t current_gear_Status;      //the actual gear the box is in
- volatile uint8_t current_gear_Selected;    //the gear selected by the lever
+ volatile uint8_t current_gear_Status = 0;      //the actual gear the box is in
+ volatile uint8_t old_gear_Status = 1;          //the last actual gear the box was in
+ volatile uint8_t current_gear_Selected = 0;    //the gear selected by the lever
+ volatile uint8_t old_gear_Selected = 1;       //the last gear selected by the lever
   
  volatile uint16_t dev1;
  volatile uint16_t dev2;
@@ -196,15 +198,15 @@ uint8_t change_down      ;//  = bits,   U08,    31,     [0:3] ,   $IN_PORT_NUMBE
 uint8_t park_in         ;//   = bits,   U08,    32,     [0:3] ,   $IN_PORT_NUMBERS
 uint8_t reverse_in      ;//   = bits,   U08,    33,     [0:3] ,   $IN_PORT_NUMBERS
 uint8_t neutral_in     ;//    = bits,   U08,    34,     [0:3] ,   $IN_PORT_NUMBERS
-uint8_t drive_in       ;//    = bits,   U08,    35,     [0:3] ,   $IN_PORT_NUMBERS
-uint8_t gear1_in       ;//    = bits,   U08,    36,     [0:3] ,   $IN_PORT_NUMBERS
-uint8_t gear2_in       ;//    = bits,   U08,    37,     [0:3] ,   $IN_PORT_NUMBERS
-uint8_t gear3_in       ;//    = bits,   U08,    38,     [0:3] ,   $IN_PORT_NUMBERS
-uint8_t gear4_in       ;//    = bits,   U08,    39,     [0:3] ,   $IN_PORT_NUMBERS
-uint8_t gear5_in       ;//    = bits,     [0:3] ,   $IN_PORT_NUMBERS
-uint8_t gear6_in       ;//    = bits,       [0:3] ,   $IN_PORT_NUMBERS
-uint8_t gear7_in       ;//    = bits,      [0:3] ,   $IN_PORT_NUMBERS
-uint8_t gear8_in       ;//    = bits,       [0:3] ,   $IN_PORT_NUMBERS
+uint8_t drive_in       ;//    
+uint8_t gear1_in       ;//    
+uint8_t gear2_in       ;//  
+uint8_t gear3_in       ;//   
+uint8_t gear4_in       ;//    
+uint8_t gear5_in       ;//   
+uint8_t gear6_in       ;//   
+uint8_t gear7_in       ;//   
+uint8_t gear8_in       ;//   
 uint8_t lockup_overide   ;//   = bits,      [0:3] ,   $IN_PORT_NUMBERS
 uint8_t gearbox_type  ;
 

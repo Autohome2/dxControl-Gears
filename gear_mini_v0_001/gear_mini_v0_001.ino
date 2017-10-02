@@ -107,7 +107,7 @@ void loop() {
         
        if ((mainLoopCount & 31) == 1) //Every 32 loops read analog and digital inputs
             {
-              for (byte Achan = 1; Achan <5 ; Achan++)
+              for (byte Achan = 1; Achan <17 ; Achan++)
                   {
                     if (pinAin[Achan] < 255) {readAnalog(Achan);}        // read the analog inputs
                   }
@@ -127,6 +127,10 @@ void loop() {
             selectorInput(); 
             gearStatus();
             gearOutput();
+            }
+            
+       if ((mainLoopCount & 63) == 1) //Every 32 loops do outputs
+            {
             update_display();
             }
                                

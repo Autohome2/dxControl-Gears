@@ -16,17 +16,22 @@ void configure_display_type()
 
 void update_display()
 {  
-        u8g2_0.firstPage();
-        do {
-           gear_letter(); 
-          manual_auto();
-          //draw line 1 
-          gps_line();
-          //draw line 2
-          oiltemp_line();
-          //draw line 3
-          selector_line();
-        } while ( u8g2_0.nextPage() );   
+       if ((currentStatus.current_gear_Status != currentStatus.old_gear_Status)||(currentStatus.current_gear_Selected != currentStatus.old_gear_Selected))
+        { 
+         u8g2_0.firstPage();
+         do {
+             gear_letter(); 
+             manual_auto();
+             //draw line 1 
+             gps_line();
+             //draw line 2
+             oiltemp_line();
+             //draw line 3
+             selector_line();
+            } while ( u8g2_0.nextPage() );
+             currentStatus.old_gear_Status = currentStatus.current_gear_Status;
+             currentStatus.old_gear_Selected = currentStatus.current_gear_Selected;
+        }   
 }
 
 void manual_auto()
@@ -38,6 +43,7 @@ void manual_auto()
 
 void gear_letter()
 {
+
    u8g2_0.setFont(u8g2_font_logisoso58_tr);
    switch (currentStatus.current_gear_Status)
         {  
@@ -92,7 +98,9 @@ void gear_letter()
          case 80:
               u8g2_0.drawStr(0,63,"E");
          break; 
-        }      
+        }
+    
+              
 }
 
 void gps_line()
