@@ -220,12 +220,11 @@ void porteditorOutput()
 
 void selectorInput()
 {
-  currentStatus.current_gear_Selected = 0;
-  //first check lever position
+//  currentStatus.current_gear_Selected = 0;
+    //first check lever position
   if (currentStatus.digIn == 0)
       {
-        currentStatus.current_gear_Selected = 80;
-      //  currentStatus.current_gear_Status = 80;
+        currentStatus.current_gear_Selected = 80;     //no selector switch is active so error
       }
   else
       {      
@@ -236,121 +235,118 @@ void selectorInput()
       
         else if (BIT_CHECK(currentStatus.digIn,(configPage1.neutral_in & B00011111)) ==  inpin2binary[configPage1.neutral_in & B00011111])
           {
-            if((currentStatus.current_gear_Selected != 0) && ((configPage1.park_in & B00011111) != (configPage1.neutral_in & B00011111)))
-              { 
-                currentStatus.current_gear_Selected = 80;                
-              }
-            else
-              {  
+            //if((currentStatus.current_gear_Selected != 0) && ((configPage1.park_in & B00011111) != (configPage1.neutral_in & B00011111)))
+            //  { 
+            //    currentStatus.current_gear_Selected = 80;                
+            //  }
+            //else
+            //  {  
                 currentStatus.current_gear_Selected = 10;
-              }  
+            //  }  
           }
       
         else if  (BIT_CHECK(currentStatus.digIn,(configPage1.drive_in & B00011111)) ==  inpin2binary[configPage1.drive_in & B00011111])      //
           {
-            if(currentStatus.current_gear_Selected != 0)
-              { 
-                currentStatus.current_gear_Selected = 80;                
-              }
-            else
-              { 
+           // if(currentStatus.current_gear_Selected != 0)
+           //   { 
+           //     currentStatus.current_gear_Selected = 80;                
+           //   }
+           // else
+           //   { 
                 currentStatus.current_gear_Selected = 20;
-              }
+           //   }
           }
       
         else if (BIT_CHECK(currentStatus.digIn, (configPage1.reverse_in & B00011111)) == inpin2binary[configPage1.reverse_in & B00011111])
           {
-            if(currentStatus.current_gear_Selected != 0)
-              { 
-                currentStatus.current_gear_Selected = 80;                
-              }
-            else
-              {             
+          //  if(currentStatus.current_gear_Selected != 0)
+          //    { 
+          //      currentStatus.current_gear_Selected = 80;                
+          //    }
+          //  else
+          //    {             
                 currentStatus.current_gear_Selected = 30;
-              }
+          //    }
           }
 
         else if ((configPage1.gear1_in != 0) && (gear[1] < 255)&&(BIT_CHECK(currentStatus.digIn,(((configPage1.gear1_in)-1)  & B00011111)) ==  inpin2binary[((configPage1.gear1_in)-1) & B00011111]))
               {
-               if(currentStatus.current_gear_Selected != 0)
-                 { 
-                   currentStatus.current_gear_Selected = 80;               
-                 }
-               else
-                 {   
+            //   if(currentStatus.current_gear_Selected != 0)
+            //     { 
+            //       currentStatus.current_gear_Selected = 80;               
+            //     }
+            //   else
+             //    {   
                    currentStatus.current_gear_Selected = 1;
-                 }
+            //     }
               }   
           
         else if ((configPage1.gear2_in != 0) && (gear[2] < 255) && (BIT_CHECK(currentStatus.digIn, (((configPage1.gear2_in)-1)  & B00011111)) ==  inpin2binary[((configPage1.gear2_in)-1) & B00011111]))
               {
-               if(currentStatus.current_gear_Selected != 0)
-                 { 
-                   currentStatus.current_gear_Selected = 80;                
-                 }
-              else
-                 {                     
+            //   if(currentStatus.current_gear_Selected != 0)
+            //     { 
+            //       currentStatus.current_gear_Selected = 80;                
+            //     }
+             // else
+            //     {                     
                     currentStatus.current_gear_Selected = 2;
-                 }
+            //     }
               }   
                 
         else if ((configPage1.gear3_in != 0) && (gear[3] < 255)&&(BIT_CHECK(currentStatus.digIn, (((configPage1.gear3_in)-1)  & B00011111)) ==  inpin2binary[((configPage1.gear3_in)-1) & B00011111]))
               {
-               if(currentStatus.current_gear_Selected != 0)
-                  { 
-                   currentStatus.current_gear_Selected = 80;                
-                  }
-              else                  
-                  {
+              // if(currentStatus.current_gear_Selected != 0)
+              //    { 
+              //     currentStatus.current_gear_Selected = 80;                
+              //    }
+              //else                  
+              //    {
                     currentStatus.current_gear_Selected = 3;
-                  }
+              //    }
               }    
               
         else if ((configPage1.gear4_in != 0) && (gear[4] < 255)&& (BIT_CHECK(currentStatus.digIn, (((configPage1.gear4_in)-1)  & B00011111)) ==  inpin2binary[((configPage1.gear4_in)-1) & B00011111]))
               {
-               if(currentStatus.current_gear_Selected != 0)
-                 { 
-                   currentStatus.current_gear_Selected = 80;                
-                 }
-              else
-                  {
+             //  if(currentStatus.current_gear_Selected != 0)
+              //   { 
+              //     currentStatus.current_gear_Selected = 80;                
+              //   }
+             // else
+              //    {
                     currentStatus.current_gear_Selected = 4;
-                  }
+             //     }
               }   
               
-        else if ((configPage1.gear5_in != 0) && (gear[5] < 255))   
-            {
-              if (BIT_CHECK(currentStatus.digIn, (((configPage1.gear5_in)-1)  & B00011111)) ==  inpin2binary[((configPage1.gear5_in)-1) & B00011111])
+        else if ((configPage1.gear5_in != 0) && (gear[5] < 255) && (BIT_CHECK(currentStatus.digIn, (((configPage1.gear5_in)-1)  & B00011111)) ==  inpin2binary[((configPage1.gear5_in)-1) & B00011111]))
               {
-               if(currentStatus.current_gear_Selected != 0)
-                 { 
-                   currentStatus.current_gear_Selected = 80;                
-                 }
-              else
-                  {
+             //  if(currentStatus.current_gear_Selected != 0)
+             //    { 
+             //      currentStatus.current_gear_Selected = 80;                
+             //    }
+             // else
+              //    {
                     currentStatus.current_gear_Selected = 5;
-                  }
+              //    }
               }    
-            }  
-        else if (gear[6] < 255)            
-            {
-              if (BIT_CHECK(currentStatus.digIn, (((configPage1.gear6_in)-1)  & B00011111)) ==  inpin2binary[((configPage1.gear6_in)-1) & B00011111])
-                 {currentStatus.current_gear_Selected = 6;}     
-            }  
-        else if (gear[7] < 255)
-            {
-              if (BIT_CHECK(currentStatus.digIn, (((configPage1.gear7_in)-1)  & B00011111)) ==  inpin2binary[((configPage1.gear7_in)-1) & B00011111])             
-                  {currentStatus.current_gear_Selected = 7;}
-            }  
-        else if (gear[8] < 255)
-            {
-              if (BIT_CHECK(currentStatus.digIn, (((configPage1.gear8_in)-1)  & B00011111)) ==  inpin2binary[((configPage1.gear8_in)-1) & B00011111])
-                 {currentStatus.current_gear_Selected = 8;}     
-            }  
+              
+        else if ((configPage1.gear6_in != 0) && (gear[6] < 255) && (BIT_CHECK(currentStatus.digIn, (((configPage1.gear6_in)-1)  & B00011111)) ==  inpin2binary[((configPage1.gear6_in)-1) & B00011111]))
+                 {
+                  currentStatus.current_gear_Selected = 6;
+                 }     
+       
+        else if ((configPage1.gear7_in != 0) && (gear[7] < 255) && (BIT_CHECK(currentStatus.digIn, (((configPage1.gear7_in)-1)  & B00011111)) ==  inpin2binary[((configPage1.gear7_in)-1) & B00011111]))
+                  {
+                    currentStatus.current_gear_Selected = 7;
+                  }
+             
+        else if ((configPage1.gear8_in != 0) && (gear[8] < 255) && (BIT_CHECK(currentStatus.digIn, (((configPage1.gear8_in)-1)  & B00011111)) ==  inpin2binary[((configPage1.gear8_in)-1) & B00011111]))
+                 {
+                  currentStatus.current_gear_Selected = 8;
+                 }    
+            
         else if (currentStatus.current_gear_Selected == 0)                                                //input is in error code80
            {     //selection error
              currentStatus.current_gear_Selected = 80;
-         //    currentStatus.current_gear_Status = 80;
            }   
       }
 //            currentStatus.dev1 =  configPage1.manual_auto_status; 
@@ -389,12 +385,12 @@ void gearOutput()
           break;
           
           case 10:    //neutral
-                currentStatus.digOut = 0;
+                 currentStatus.digOut = 0;                             //reset all outputs
                  BIT_SET(currentStatus.digOut,((boxOutput[10])-1));   //enable starter
           break;
 
           case 11:    // park
-                currentStatus.digOut = 0;
+                 currentStatus.digOut = 0;
                  BIT_SET(currentStatus.digOut,((boxOutput[10])-1));   //enable starter
           break;
 
@@ -601,19 +597,19 @@ void gearStatus()
     }       // manual_auto_status == 0
     
     //now do lockup switching
-    currentStatus.dev1 = configPage1.lockup_overide;//the pinin from switch
-    currentStatus.dev2 = boxOutput[8];// the pinout the lockup1 solenoid is on
+ //   currentStatus.dev1 = configPage1.lockup_overide;//the pinin from switch
+ //   currentStatus.dev2 = boxOutput[8];// the pinout the lockup1 solenoid is on
    
     if (configPage1.lockup_overide != 0)    //if lockup override is enabled
       {
         if (BIT_CHECK(currentStatus.digIn, ((configPage1.lockup_overide -1)  & B00011111)) == inpin2binary[(configPage1.lockup_overide -1) & B00011111])  //if the input pin is active
           {
-    currentStatus.dev3 = 33; 
+ //   currentStatus.dev3 = 33; 
             BIT_SET(currentStatus.digOut,((boxOutput[8])-1));
           }
         else
           {
-    currentStatus.dev3 = 44;
+ //   currentStatus.dev3 = 44;
             BIT_CLEAR(currentStatus.digOut,((boxOutput[8])-1));                                
           }
       }    

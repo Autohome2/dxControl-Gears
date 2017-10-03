@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <msq xmlns="http://www.msefi.com/:msq">
-<bibliography author="TunerStudio MS(Beta) 3.0.28 - EFI Analytics, Inc." tuneComment="" writeDate="Sat Sep 30 01:17:51 BST 2017"/>
+<bibliography author="TunerStudio MS(Beta) 3.0.28 - EFI Analytics, Inc." tuneComment="" writeDate="Tue Oct 03 22:34:25 BST 2017"/>
 <versionInfo fileFormat="5.0" firmwareInfo="speeduino+201709-GearControl+V0.001" nPages="2" signature="speeduino_GearControl 201709"/>
 <page>
 <pcVariable name="tsCanId">"CAN ID 0"</pcVariable>
@@ -146,15 +146,15 @@
 <constant name="reverse_in">"In 4"</constant>
 <constant name="neutral_in">"In 5"</constant>
 <constant name="drive_in">"In 6"</constant>
-<constant name="gear1_in">"In 7"</constant>
-<constant name="gear2_in">"In 8"</constant>
-<constant name="gear3_in">"In 9"</constant>
-<constant name="gear4_in">"In 10"</constant>
-<constant name="gear5_in">"In 1"</constant>
-<constant name="gear6_in">"In 7"</constant>
-<constant name="gear7_in">"In 6"</constant>
-<constant name="gear8_in">"In 1"</constant>
-<constant name="lockup_overide">"In 11"</constant>
+<constant name="gear1_in">"In 8"</constant>
+<constant name="gear2_in">"In 7"</constant>
+<constant name="gear3_in">"Not Used"</constant>
+<constant name="gear4_in">"Not Used"</constant>
+<constant name="gear5_in">"Not Used"</constant>
+<constant name="gear6_in">"Not Used"</constant>
+<constant name="gear7_in">"Not Used"</constant>
+<constant name="gear8_in">"Not Used"</constant>
+<constant name="lockup_overide">"Disabled"</constant>
 <constant name="gearbox_type">"A340E"</constant>
 <constant name="FunctionActive0">"On"</constant>
 <constant name="FunctionActive1">"On"</constant>
@@ -224,13 +224,9 @@
 <constant digits="0" name="unused1_107">0.0</constant>
 <constant digits="0" name="unused1_108">0.0</constant>
 <constant digits="0" name="unused1_109">0.0</constant>
-<constant digits="0" name="unused1_110">0.0</constant>
-<constant digits="0" name="unused1_111">0.0</constant>
-<constant digits="0" name="unused1_112">0.0</constant>
-<constant digits="0" name="unused1_113">0.0</constant>
-<constant digits="0" name="unused1_114">0.0</constant>
-<constant digits="0" name="unused1_115">0.0</constant>
-<constant digits="0" name="unused1_116">0.0</constant>
+<constant digits="3" name="final_drive_ratio" units=":1">1.0</constant>
+<constant digits="2" name="tire_diameter" units="inches">25.0</constant>
+<constant digits="0" name="number_wheel_impulses">255.0</constant>
 <constant digits="0" name="unused1_117">0.0</constant>
 <constant digits="0" name="unused1_118">0.0</constant>
 <constant digits="0" name="unused1_119">0.0</constant>
@@ -329,18 +325,18 @@
          130.0 
          130.0 
          130.0 
-         129.0 
-         129.0 
-         129.0 
-         129.0 
-         129.0 
-         129.0 
-         129.0 
-         129.0 
-         129.0 
-         129.0 
-         129.0 
-         129.0 
+         130.0 
+         130.0 
+         130.0 
+         130.0 
+         130.0 
+         130.0 
+         130.0 
+         130.0 
+         130.0 
+         130.0 
+         130.0 
+         130.0 
          18.0 
          0.0 
          18.0 
@@ -349,37 +345,37 @@
          0.0 
          18.0 
          0.0 
-         13.0 
+         18.0 
          0.0 
-         13.0 
+         18.0 
          0.0 
-         13.0 
+         18.0 
          0.0 
-         13.0 
+         18.0 
          0.0 
-         13.0 
+         18.0 
          0.0 
-         13.0 
+         18.0 
          0.0 
-         13.0 
+         18.0 
          0.0 
-         13.0 
+         18.0 
          0.0 
-         13.0 
+         18.0 
          0.0 
-         13.0 
+         18.0 
          0.0 
-         13.0 
+         18.0 
          0.0 
-         13.0 
+         18.0 
          0.0 
          1.0 
          0.0 
-         2.0 
+         1.0 
          0.0 
-         4.0 
+         1.0 
          0.0 
-         8.0 
+         1.0 
          0.0 
          1.0 
          0.0 
@@ -512,13 +508,13 @@
          0.0 
       </constant>
 <constant digits="0" name="port_OutSize" rows="1">
-         130.0 130.0 130.0 130.0 129.0 129.0 129.0 129.0 129.0 129.0 129.0 129.0 129.0 129.0 129.0 129.0 
+         130.0 130.0 130.0 130.0 130.0 130.0 130.0 130.0 130.0 130.0 130.0 130.0 130.0 130.0 130.0 130.0 
       </constant>
 <constant digits="0" name="port_OutOffset" rows="1">
-         18.0 18.0 18.0 18.0 13.0 13.0 13.0 13.0 13.0 13.0 13.0 13.0 13.0 13.0 13.0 13.0 
+         18.0 18.0 18.0 18.0 18.0 18.0 18.0 18.0 18.0 18.0 18.0 18.0 18.0 18.0 18.0 18.0 
       </constant>
 <constant digits="0" name="port_Threshold" rows="1">
-         1.0 2.0 4.0 8.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 
+         1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 
       </constant>
 <constant digits="0" name="port_Hysteresis" rows="1">
          1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 
