@@ -10,7 +10,7 @@
 //uint8_t realtimebuffer[60];   //buffer array to store the realtime data read
 //volatile uint8_t replylength;          // the length of the reply variable
 
-byte direct_packetSize = 54;
+byte direct_packetSize = 60;
 unsigned long direct_requestCount = 0; //The number of times the A command has been issued
 
 void direct_serial_command();

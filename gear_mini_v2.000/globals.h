@@ -136,7 +136,9 @@ struct statuses {
  volatile uint8_t old_gear_Status = 1;          //the last actual gear the box was in
  volatile uint8_t current_gear_Selected = 0;    //the gear selected by the lever
  volatile uint8_t old_gear_Selected = 1;       //the last gear selected by the lever
-  
+ volatile uint16_t speedo;
+ volatile uint32_t odometer = 121345; 
+ volatile uint8_t *odometer_byte = (uint8_t*)&odometer;    //odometer_byte[3];           //odometer reading broken into byte sized chunks , [0] is lsb ,[4] is msb 
  volatile uint16_t dev1;
  volatile uint16_t dev2;
  volatile uint16_t dev3;
