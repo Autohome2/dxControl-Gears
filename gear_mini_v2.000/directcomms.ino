@@ -324,10 +324,10 @@ void direct_sendValues(uint16_t offset, uint16_t packetLength, uint8_t cmd)
   fullStatus[16] = highByte(currentStatus.dev4);
   fullStatus[17] = lowByte(currentStatus.speedo);//        
   fullStatus[18] = highByte(currentStatus.speedo);
-  fullStatus[19] = currentStatus.odometer_byte[0];              
-  fullStatus[20] = currentStatus.odometer_byte[1]; 
-  fullStatus[21] = currentStatus.odometer_byte[2]; 
-  fullStatus[22] = currentStatus.odometer_byte[3]; 
+  fullStatus[19] = 1;//currentStatus.odometer_byte[0];              
+  fullStatus[20] = 2;//currentStatus.odometer_byte[1]; 
+  fullStatus[21] = 3;//currentStatus.odometer_byte[2]; 
+  fullStatus[22] = 4;//currentStatus.odometer_byte[3]; 
   fullStatus[23] = currentStatus.testIO_hardware;
   fullStatus[24] = lowByte(currentStatus.digIn);
   fullStatus[25] = highByte(currentStatus.digIn);

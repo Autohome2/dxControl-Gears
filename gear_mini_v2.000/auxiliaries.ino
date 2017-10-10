@@ -228,12 +228,12 @@ void selectorInput()
       }
   else
       {      
-        if (BIT_CHECK(currentStatus.digIn,(configPage1.park_in & B00011111)) ==  inpin2binary[configPage1.park_in & B00011111])
+        if (BIT_CHECK(currentStatus.digIn,(((configPage1.park_in)-1) & B00011111)) ==  inpin2binary[(((configPage1.park_in)-1) & B00011111)])
           {
             currentStatus.current_gear_Selected = 11;
           }
       
-        else if (BIT_CHECK(currentStatus.digIn,(configPage1.neutral_in & B00011111)) ==  inpin2binary[configPage1.neutral_in & B00011111])
+        else if (BIT_CHECK(currentStatus.digIn,(configPage1.neutral_in & B00011111)) ==  inpin2binary[(configPage1.neutral_in & B00011111)])
           {
             //if((currentStatus.current_gear_Selected != 0) && ((configPage1.park_in & B00011111) != (configPage1.neutral_in & B00011111)))
             //  { 
@@ -245,7 +245,7 @@ void selectorInput()
             //  }  
           }
       
-        else if  (BIT_CHECK(currentStatus.digIn,(configPage1.drive_in & B00011111)) ==  inpin2binary[configPage1.drive_in & B00011111])      //
+        else if  (BIT_CHECK(currentStatus.digIn,(configPage1.drive_in & B00011111)) ==  inpin2binary[(configPage1.drive_in & B00011111)])      //
           {
            // if(currentStatus.current_gear_Selected != 0)
            //   { 
@@ -257,7 +257,7 @@ void selectorInput()
            //   }
           }
       
-        else if (BIT_CHECK(currentStatus.digIn, (configPage1.reverse_in & B00011111)) == inpin2binary[configPage1.reverse_in & B00011111])
+        else if (BIT_CHECK(currentStatus.digIn, (configPage1.reverse_in & B00011111)) == inpin2binary[(configPage1.reverse_in & B00011111)])
           {
           //  if(currentStatus.current_gear_Selected != 0)
           //    { 
