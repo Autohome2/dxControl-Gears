@@ -532,10 +532,10 @@ void gearStatus()
            //       {
           //          if (configPage1.manual_auto_status == 0)      //if set to manual 
           //              {
-          //                if (currentStatus.paddleshift_used == 0)   // if a manual change has NOT occurred
-          //                    {
+                          if (currentStatus.paddleshift_used == 0)   // if a manual change has NOT occurred
+                              {
                                 currentStatus.current_gear_Status = 20;
-          //                    }   
+                              }   
            //             }
           //     else if (configPage1.manual_auto_status == 1)      //if set to auto      
           //              {
@@ -555,7 +555,7 @@ void gearStatus()
           break;
         }
         
-        return;
+     //   return;
   //now if in manual and in drive do up down inputs if enabled
   if (configPage1.manual_auto_status == 0)      //if set to manual check up down inputs
     {
