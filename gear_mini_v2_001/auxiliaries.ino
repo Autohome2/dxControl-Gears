@@ -378,8 +378,7 @@ void selectorInput()
             }   
       }
       
-            currentStatus.dev1 =  currentStatus.current_gear_Selected; //show mcu gear pos
-            currentStatus.dev2 =  currentStatus.current_gear_Status;  //shows selector gear
+            currentStatus.dev1 =  currentStatus.current_gear_Selected; 
 }
 
 void gearOutput()
@@ -529,7 +528,7 @@ void gearStatus()
           break;
 
           case 20:  //drive
-               if ((currentStatus.current_gear_Status == 10) || ((currentStatus.current_gear_Status >= 1)&&(currentStatus.current_gear_Status <=8)) || (currentStatus.current_gear_Status == 80) )
+               if ((currentStatus.current_gear_Status == 10) || (currentStatus.current_gear_Status == 30) || (currentStatus.current_gear_Status == 20) || ((currentStatus.current_gear_Status >= 1)&&(currentStatus.current_gear_Status <=8)) || (currentStatus.current_gear_Status == 80) )
                   {
                     if (configPage1.manual_auto_status == 0)      //if set to manual 
                         {
@@ -641,7 +640,9 @@ void gearStatus()
  //   currentStatus.dev3 = 44;
             BIT_CLEAR(currentStatus.digOut,((boxOutput[8])-1));                                
           }
-      }    
+      }  
+
+      currentStatus.dev2 =  currentStatus.current_gear_Status;
 }
 
 void stepgear(uint8_t updwn)
