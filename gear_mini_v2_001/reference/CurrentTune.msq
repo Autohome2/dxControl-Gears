@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <msq xmlns="http://www.msefi.com/:msq">
-<bibliography author="TunerStudio MS(Beta) 3.0.28 - EFI Analytics, Inc." tuneComment="" writeDate="Thu Oct 12 19:53:04 BST 2017"/>
+<bibliography author="TunerStudio MS(Beta) 3.0.28 - EFI Analytics, Inc." tuneComment="" writeDate="Thu Oct 12 20:16:53 BST 2017"/>
 <versionInfo fileFormat="5.0" firmwareInfo="speeduino+201709-GearControl+V0.001" nPages="3" signature="speeduino_GearControl 201709"/>
 <page>
 <pcVariable name="tsCanId">"CAN ID 0"</pcVariable>

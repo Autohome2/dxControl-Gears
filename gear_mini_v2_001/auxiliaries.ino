@@ -272,7 +272,7 @@ void selectorInput()
           //    }
           }
 
-      if (configPage1.gear1_in != 0)       //if selection is not disabled
+      if ((configPage1.gear1_in != 0)||(gear[1] != 255))       //if selection is NOT unused by selector or NOT unused by gearbox  
                {
                 if ((gear[1] < 255)&&(BIT_CHECK(currentStatus.digIn,(((configPage1.gear1_in)-1)  & B00011111)) ==  inpin2binary[((configPage1.gear1_in)-1) & B00011111]))
                   {
@@ -287,7 +287,7 @@ void selectorInput()
                   }
                }     
           
-       if (configPage1.gear2_in != 0)             //if selection is not disabled
+       if ((configPage1.gear2_in != 0)||(gear[2] != 255))       //if selection is NOT unused by selector or NOT unused by gearbox  
                   {
                     if ((gear[2] < 255) && (BIT_CHECK(currentStatus.digIn, (((configPage1.gear2_in)-1)  & B00011111)) ==  inpin2binary[((configPage1.gear2_in)-1) & B00011111]))
                         {
@@ -302,7 +302,7 @@ void selectorInput()
                         }
                   }        
                 
-       if (configPage1.gear3_in != 0)             //if selection is not disabled
+       if ((configPage1.gear3_in != 0)||(gear[3] != 255))       //if selection is NOT unused by selector or NOT unused by gearbox  
                {
                 if ((gear[3] < 255)&&(BIT_CHECK(currentStatus.digIn, (((configPage1.gear3_in)-1)  & B00011111)) ==  inpin2binary[((configPage1.gear3_in)-1) & B00011111]))
                     {
@@ -317,7 +317,7 @@ void selectorInput()
                     }    
                }
                
-       if (configPage1.gear4_in != 0)             //if selection is not disabled
+       if ((configPage1.gear4_in != 0)||(gear[4] != 255))       //if selection is NOT unused by selector or NOT unused by gearbox  
                 {
                  if ((gear[4] < 255)&& (BIT_CHECK(currentStatus.digIn, (((configPage1.gear4_in)-1)  & B00011111)) ==  inpin2binary[((configPage1.gear4_in)-1) & B00011111]))
                     {
@@ -332,7 +332,7 @@ void selectorInput()
                     }   
                 }
                 
-       if (configPage1.gear5_in != 0)             //if selection is not disabled
+       if ((configPage1.gear5_in != 0)||(gear[5] != 255))       //if selection is NOT unused by selector or NOT unused by gearbox  
                 {
                  if ((gear[5] < 255) && (BIT_CHECK(currentStatus.digIn, (((configPage1.gear5_in)-1)  & B00011111)) ==  inpin2binary[((configPage1.gear5_in)-1) & B00011111]))
                     {
@@ -347,7 +347,7 @@ void selectorInput()
                     }    
                 }
                 
-        if (configPage1.gear6_in != 0)             //if selection is not disabled
+        if ((configPage1.gear6_in != 0)||(gear[6] != 255))       //if selection is NOT unused by selector or NOT unused by gearbox  
                 {
                   if ((gear[6] < 255) && (BIT_CHECK(currentStatus.digIn, (((configPage1.gear6_in)-1)  & B00011111)) ==  inpin2binary[((configPage1.gear6_in)-1) & B00011111]))
                       {
@@ -355,7 +355,7 @@ void selectorInput()
                       }     
                 }      
        
-       if (configPage1.gear7_in != 0)             //if selection is not disabled
+       if ((configPage1.gear7_in != 0)||(gear[7] != 255))       //if selection is NOT unused by selector or NOT unused by gearbox  
                 {
                   if ((gear[7] < 255) && (BIT_CHECK(currentStatus.digIn, (((configPage1.gear7_in)-1)  & B00011111)) ==  inpin2binary[((configPage1.gear7_in)-1) & B00011111]))
                     {
@@ -364,7 +364,7 @@ void selectorInput()
                   
                 }
                 
-       if (configPage1.gear8_in != 0)             //if selection is not disabled
+       if ((configPage1.gear8_in != 0)||(gear[8] != 255))       //if selection is NOT unused by selector or NOT unused by gearbox  
                 {
                  if ((gear[8] < 255) && (BIT_CHECK(currentStatus.digIn, (((configPage1.gear8_in)-1)  & B00011111)) ==  inpin2binary[((configPage1.gear8_in)-1) & B00011111]))
                     {
