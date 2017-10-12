@@ -528,10 +528,13 @@ void gearStatus()
           break;
 
           case 20:  //drive
-           //    if ((currentStatus.current_gear_Status == 10) || (currentStatus.current_gear_Status == 30) || (currentStatus.current_gear_Status == 20) || ((currentStatus.current_gear_Status >= 1)&&(currentStatus.current_gear_Status <=8)) || (currentStatus.current_gear_Status == 80) )
+           //    if ((currentStatus.current_gear_Status == 10) || (currentStatus.current_gear_Status == 20) || ((currentStatus.current_gear_Status >= 1)&&(currentStatus.current_gear_Status <=8)) || (currentStatus.current_gear_Status == 80) )
            //       {
           //          if (configPage1.manual_auto_status == 0)      //if set to manual 
           //              {
+           currentStatus.dev3 = configPage1.manual_auto_status;
+           currentStatus.dev4 = currentStatus.paddleshift_used;
+            
                           if (currentStatus.paddleshift_used == 0)   // if a manual change has NOT occurred
                               {
                                 currentStatus.current_gear_Status = 20;
@@ -557,8 +560,8 @@ void gearStatus()
         
      //   return;
   //now if in manual and in drive do up down inputs if enabled
-  if (configPage1.manual_auto_status == 0)      //if set to manual check up down inputs
-    {
+ // if (configPage1.manual_auto_status == 0)      //if set to manual check up down inputs
+ //   {
     if (currentStatus.current_gear_Selected == 20)
         {
           if (configPage1.change_up != 0)           //if up paddle is activated
@@ -623,7 +626,7 @@ void gearStatus()
                 }
             }   //ends change_down != 0      
         } //ends current_gear_Status == 10
-    }       // manual_auto_status == 0
+   // }       // manual_auto_status == 0
     
     //now do lockup switching
  //   currentStatus.dev1 = configPage1.lockup_overide;//the pinin from switch
