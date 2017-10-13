@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <msq xmlns="http://www.msefi.com/:msq">
-<bibliography author="TunerStudio MS(Beta) 3.0.28 - EFI Analytics, Inc." tuneComment="" writeDate="Thu Oct 12 20:16:53 BST 2017"/>
+<bibliography author="TunerStudio MS(Beta) 3.0.28 - EFI Analytics, Inc." tuneComment="" writeDate="Fri Oct 13 00:43:56 BST 2017"/>
 <versionInfo fileFormat="5.0" firmwareInfo="speeduino+201709-GearControl+V0.001" nPages="3" signature="speeduino_GearControl 201709"/>
 <page>
 <pcVariable name="tsCanId">"CAN ID 0"</pcVariable>
@@ -187,62 +187,56 @@
 <constant name="FunctionActive29">"Off"</constant>
 <constant name="FunctionActive30">"Off"</constant>
 <constant name="FunctionActive31">"Off"</constant>
+<constant digits="0" name="unused1_74">255.0</constant>
+<constant digits="0" name="unused1_75">1.0</constant>
+<constant digits="0" name="unused1_76">1.0</constant>
+<constant digits="0" name="unused1_77">1.0</constant>
+<constant digits="0" name="unused1_78">1.0</constant>
+<constant digits="0" name="unused1_79">1.0</constant>
+<constant digits="0" name="unused1_80">1.0</constant>
+<constant digits="0" name="unused1_81">1.0</constant>
+<constant digits="0" name="unused1_82">1.0</constant>
+<constant digits="0" name="unused1_83">1.0</constant>
+<constant digits="0" name="unused1_84">1.0</constant>
+<constant digits="0" name="unused1_85">1.0</constant>
+<constant digits="0" name="unused1_86">1.0</constant>
+<constant digits="0" name="unused1_87">1.0</constant>
+<constant digits="0" name="unused1_88">0.0</constant>
+<constant digits="0" name="unused1_89">0.0</constant>
+<constant digits="0" name="unused1_90">0.0</constant>
+<constant digits="0" name="unused1_91">0.0</constant>
+<constant digits="0" name="unused1_92">0.0</constant>
+<constant digits="0" name="unused1_93">0.0</constant>
+<constant digits="0" name="unused1_94">0.0</constant>
+<constant digits="0" name="unused1_95">0.0</constant>
+<constant digits="0" name="unused1_96">0.0</constant>
+<constant digits="0" name="unused1_97">0.0</constant>
+<constant digits="0" name="unused1_98">0.0</constant>
+<constant digits="0" name="unused1_99">8.0</constant>
 <constant name="display_type">"128x64 oled(ssh1106)"</constant>
 <constant name="manual_auto_status">"Manual"</constant>
-<constant name="current_selector_status">"ERROR"</constant>
-<constant name="current_gear_status">"1"</constant>
-<constant digits="0" name="pulse_per_mile" units="/mi">0.0</constant>
+<constant digits="0" name="unused1_102">0.0</constant>
+<constant digits="0" name="unused1_103">0.0</constant>
+<constant digits="0" name="unused1_104">0.0</constant>
+<constant digits="0" name="unused1_105">0.0</constant>
+<constant digits="0" name="unused1_106">0.0</constant>
+<constant digits="0" name="unused1_107">0.0</constant>
+<constant digits="0" name="unused1_108">0.0</constant>
+<constant digits="0" name="unused1_109">0.0</constant>
+<constant digits="0" name="pulse_per_mile" units="/km">0.0</constant>
 <constant digits="3" name="final_drive_ratio" units=":1">4.0</constant>
-<constant digits="2" name="tyre_diameter" units="inches">31.5</constant>
+<constant digits="2" name="tyre_diameter" units="cm">81.9912</constant>
 <constant digits="0" name="number_wheel_impulses">255.0</constant>
-<constant cols="1" digits="0" name="UNALLOCATED_SPACE_0_0" rows="26" units="RAW">
-         255.0 
-         1.0 
-         1.0 
-         1.0 
-         1.0 
-         1.0 
-         1.0 
-         1.0 
-         1.0 
-         1.0 
-         1.0 
-         1.0 
-         1.0 
-         1.0 
-         0.0 
-         0.0 
-         0.0 
-         0.0 
-         0.0 
-         0.0 
-         0.0 
-         0.0 
-         0.0 
-         0.0 
-         0.0 
-         0.0 
-      </constant>
-<constant cols="1" digits="0" name="UNALLOCATED_SPACE_0_1" rows="6" units="RAW">
-         80.0 
-         80.0 
-         0.0 
-         0.0 
-         0.0 
-         0.0 
-      </constant>
-<constant cols="1" digits="0" name="UNALLOCATED_TOP_0" rows="10" units="RAW">
-         0.0 
-         0.0 
-         200.0 
-         0.0 
-         0.0 
-         0.0 
-         109.0 
-         0.0 
-         1.0 
-         1.0 
-      </constant>
+<constant digits="0" name="unused1_118">0.0</constant>
+<constant digits="0" name="unused1_119">0.0</constant>
+<constant digits="0" name="unused1_120">0.0</constant>
+<constant digits="0" name="unused1_121">0.0</constant>
+<constant digits="0" name="unused1_122">0.0</constant>
+<constant digits="0" name="unused1_123">0.0</constant>
+<constant digits="0" name="unused1_124">0.0</constant>
+<constant digits="0" name="unused1_125">0.0</constant>
+<constant digits="0" name="unused1_126">0.0</constant>
+<constant digits="0" name="unused1_127">0.0</constant>
 </page>
 <page number="1" size="256">
 <constant cols="1" digits="0" name="port_Enabled" rows="208" units="on/off">
@@ -346,7 +340,7 @@
          0.0 
          18.0 
          0.0 
-         2.0 
+         0.0 
          0.0 
          18.0 
          0.0 
@@ -413,31 +407,31 @@
          1.0 
          1.0 
          1.0 
-         0.0 
          1.0 
-         0.0 
          1.0 
-         0.0 
          1.0 
-         0.0 
          1.0 
-         0.0 
          1.0 
-         0.0 
          1.0 
-         0.0 
          1.0 
-         0.0 
          1.0 
-         0.0 
          1.0 
-         0.0 
          1.0 
-         0.0 
          1.0 
-         0.0 
          1.0 
-         0.0 
+         1.0 
+         1.0 
+         1.0 
+         1.0 
+         1.0 
+         1.0 
+         1.0 
+         1.0 
+         1.0 
+         1.0 
+         1.0 
+         1.0 
+         1.0 
          0.0 
          0.0 
          0.0 
@@ -516,13 +510,13 @@
          130.0 130.0 130.0 130.0 130.0 130.0 130.0 130.0 130.0 130.0 130.0 130.0 130.0 130.0 130.0 130.0 
       </constant>
 <constant digits="0" name="port_OutOffset" rows="1">
-         18.0 18.0 2.0 18.0 18.0 18.0 18.0 18.0 18.0 18.0 18.0 18.0 18.0 18.0 18.0 18.0 
+         18.0 18.0 0.0 18.0 18.0 18.0 18.0 18.0 18.0 18.0 18.0 18.0 18.0 18.0 18.0 18.0 
       </constant>
 <constant digits="0" name="port_Threshold" rows="1">
          1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 257.0 257.0 257.0 257.0 257.0 
       </constant>
 <constant digits="0" name="port_Hysteresis" rows="1">
-         257.0 257.0 257.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 
+         257.0 257.0 257.0 257.0 257.0 257.0 257.0 257.0 257.0 257.0 257.0 257.0 257.0 257.0 257.0 257.0 
       </constant>
 <constant digits="0" name="port_CanId" rows="1">
          0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
@@ -579,50 +573,8 @@
       </constant>
 </page>
 <page number="2" size="128">
-<constant digits="0" name="unused1_74">1.0</constant>
-<constant digits="0" name="unused1_75">0.0</constant>
-<constant digits="0" name="unused1_76">1.0</constant>
-<constant digits="0" name="unused1_77">0.0</constant>
-<constant digits="0" name="unused1_78">1.0</constant>
-<constant digits="0" name="unused1_79">0.0</constant>
-<constant digits="0" name="unused1_80">1.0</constant>
-<constant digits="0" name="unused1_81">0.0</constant>
-<constant digits="0" name="unused1_82">1.0</constant>
-<constant digits="0" name="unused1_83">0.0</constant>
-<constant digits="0" name="unused1_84">1.0</constant>
-<constant digits="0" name="unused1_85">0.0</constant>
-<constant digits="0" name="unused1_86">1.0</constant>
-<constant digits="0" name="unused1_87">0.0</constant>
-<constant digits="0" name="unused1_88">1.0</constant>
-<constant digits="0" name="unused1_89">0.0</constant>
-<constant digits="0" name="unused1_90">1.0</constant>
-<constant digits="0" name="unused1_91">0.0</constant>
-<constant digits="0" name="unused1_92">0.0</constant>
-<constant digits="0" name="unused1_93">0.0</constant>
-<constant digits="0" name="unused1_94">0.0</constant>
-<constant digits="0" name="unused1_95">0.0</constant>
-<constant digits="0" name="unused1_96">0.0</constant>
-<constant digits="0" name="unused1_97">0.0</constant>
-<constant digits="0" name="unused1_98">0.0</constant>
-<constant digits="0" name="unused1_99">0.0</constant>
-<constant digits="0" name="unused1_104">0.0</constant>
-<constant digits="0" name="unused1_105">0.0</constant>
-<constant digits="0" name="unused1_106">0.0</constant>
-<constant digits="0" name="unused1_107">0.0</constant>
-<constant digits="0" name="unused1_108">0.0</constant>
-<constant digits="0" name="unused1_109">0.0</constant>
-<constant digits="0" name="unused1_118">255.0</constant>
-<constant digits="0" name="unused1_119">255.0</constant>
-<constant digits="0" name="unused1_120">255.0</constant>
-<constant digits="0" name="unused1_121">255.0</constant>
-<constant digits="0" name="unused1_122">255.0</constant>
-<constant digits="0" name="unused1_123">255.0</constant>
-<constant digits="0" name="unused1_124">39.0</constant>
-<constant digits="0" name="unused1_125">39.0</constant>
-<constant digits="0" name="unused1_126">39.0</constant>
-<constant digits="0" name="unused1_127">39.0</constant>
 <constant name="exinsel0">"Off"</constant>
-<constant name="exinsel1">"On"</constant>
+<constant name="exinsel1">"Off"</constant>
 <constant name="exinsel2">"Off"</constant>
 <constant name="exinsel3">"Off"</constant>
 <constant name="exinsel4">"Off"</constant>
@@ -685,26 +637,68 @@
 <constant name="num_bytes13">"1"</constant>
 <constant name="num_bytes14">"1"</constant>
 <constant name="num_bytes15">"1"</constant>
-<constant digits="0" name="unused1_66">1.0</constant>
-<constant digits="0" name="unused1_67">0.0</constant>
-<constant digits="0" name="unused1_68">1.0</constant>
-<constant digits="0" name="unused1_69">0.0</constant>
-<constant digits="0" name="unused1_70">1.0</constant>
-<constant digits="0" name="unused1_71">0.0</constant>
-<constant digits="0" name="unused1_72">1.0</constant>
-<constant digits="0" name="unused1_73">0.0</constant>
-<constant digits="0" name="unused1_100">0.0</constant>
-<constant digits="0" name="unused1_101">0.0</constant>
-<constant digits="0" name="unused1_102">0.0</constant>
-<constant digits="0" name="unused1_103">0.0</constant>
-<constant digits="0" name="unused1_110">0.0</constant>
-<constant digits="0" name="unused1_111">0.0</constant>
-<constant digits="0" name="unused1_112">0.0</constant>
-<constant digits="0" name="unused1_113">1.0</constant>
-<constant digits="0" name="unused1_114">1.0</constant>
-<constant digits="0" name="unused1_115">0.0</constant>
-<constant digits="0" name="unused1_116">0.0</constant>
-<constant digits="0" name="unused1_117">255.0</constant>
+<constant digits="0" name="unused3_66">1.0</constant>
+<constant digits="0" name="unused3_67">1.0</constant>
+<constant digits="0" name="unused3_68">1.0</constant>
+<constant digits="0" name="unused3_69">1.0</constant>
+<constant digits="0" name="unused3_70">1.0</constant>
+<constant digits="0" name="unused3_71">1.0</constant>
+<constant digits="0" name="unused3_72">1.0</constant>
+<constant digits="0" name="unused3_73">1.0</constant>
+<constant digits="0" name="unused3_74">1.0</constant>
+<constant digits="0" name="unused3_75">1.0</constant>
+<constant digits="0" name="unused3_76">1.0</constant>
+<constant digits="0" name="unused3_77">1.0</constant>
+<constant digits="0" name="unused3_78">1.0</constant>
+<constant digits="0" name="unused3_79">1.0</constant>
+<constant digits="0" name="unused3_80">1.0</constant>
+<constant digits="0" name="unused3_81">1.0</constant>
+<constant digits="0" name="unused3_82">1.0</constant>
+<constant digits="0" name="unused3_83">1.0</constant>
+<constant digits="0" name="unused3_84">1.0</constant>
+<constant digits="0" name="unused3_85">1.0</constant>
+<constant digits="0" name="unused3_86">1.0</constant>
+<constant digits="0" name="unused3_87">1.0</constant>
+<constant digits="0" name="unused3_88">1.0</constant>
+<constant digits="0" name="unused3_89">1.0</constant>
+<constant digits="0" name="unused3_90">1.0</constant>
+<constant digits="0" name="unused3_91">1.0</constant>
+<constant digits="0" name="unused3_92">0.0</constant>
+<constant digits="0" name="unused3_93">0.0</constant>
+<constant digits="0" name="unused3_94">0.0</constant>
+<constant digits="0" name="unused3_95">0.0</constant>
+<constant digits="0" name="unused3_96">0.0</constant>
+<constant digits="0" name="unused3_97">0.0</constant>
+<constant digits="0" name="unused3_98">0.0</constant>
+<constant digits="0" name="unused3_99">0.0</constant>
+<constant digits="0" name="unused3_100">0.0</constant>
+<constant digits="0" name="unused3_101">0.0</constant>
+<constant digits="0" name="unused3_102">0.0</constant>
+<constant digits="0" name="unused3_103">0.0</constant>
+<constant digits="0" name="unused3_104">0.0</constant>
+<constant digits="0" name="unused3_105">0.0</constant>
+<constant digits="0" name="unused3_106">0.0</constant>
+<constant digits="0" name="unused3_107">0.0</constant>
+<constant digits="0" name="unused3_108">0.0</constant>
+<constant digits="0" name="unused3_109">0.0</constant>
+<constant digits="0" name="unused3_110">0.0</constant>
+<constant digits="0" name="unused3_111">0.0</constant>
+<constant digits="0" name="unused3_112">0.0</constant>
+<constant digits="0" name="unused3_113">1.0</constant>
+<constant digits="0" name="unused3_114">1.0</constant>
+<constant digits="0" name="unused3_115">0.0</constant>
+<constant digits="0" name="unused3_116">0.0</constant>
+<constant digits="0" name="unused3_117">255.0</constant>
+<constant digits="0" name="unused3_118">255.0</constant>
+<constant digits="0" name="unused3_119">255.0</constant>
+<constant digits="0" name="unused3_120">255.0</constant>
+<constant digits="0" name="unused3_121">255.0</constant>
+<constant digits="0" name="unused3_122">255.0</constant>
+<constant digits="0" name="unused3_123">255.0</constant>
+<constant digits="0" name="unused3_124">39.0</constant>
+<constant digits="0" name="unused3_125">39.0</constant>
+<constant digits="0" name="unused3_126">39.0</constant>
+<constant digits="0" name="unused3_127">39.0</constant>
 </page>
 <settings Comment="These setting are only used if this msq is opened without a project.">
 <setting name="SI_LENGTHS_OFF" value="SI_LENGTHS_OFF"/>

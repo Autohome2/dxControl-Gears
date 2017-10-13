@@ -12,4 +12,6 @@ void gps_line();
 void oiltemp_line();
 void selector_line();
 
+uint8_t disp_blink = 0;
+
 #endif

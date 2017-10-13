@@ -119,6 +119,7 @@ struct statuses {
  volatile  uint16_t freeRAM ;
  volatile uint8_t currentPage;
  volatile uint8_t testIO_hardware;
+ volatile bool first_Run = 1; // 1 if first loop cycle 0 if not 
 // uint8_t digInState[16];             //0 is off else on(set by direct pin read or interupts)
  uint16_t currentInputvalue[2];      //holds the analog input value for each conditional input , [0] first condition and [1] holds the second
  uint16_t currentInputvalueCond[3];  //holds the input test condition flags for each test condition , [0] holds first, [1] holds the second and [2] holds the total pass
@@ -163,7 +164,7 @@ struct __attribute__ ( ( packed ) ) config1 {
 uint16_t master_controller_address:10;
 byte pinLayout;
 byte speeduinoConnection ;
-uint16_t speeduinoBaseCan:10 ;       //speeduino base can address
+uint16_t speeduinoBaseCan ;       //speeduino base can address
 //byte unused4;
 //byte unused5;
 byte unused6;
