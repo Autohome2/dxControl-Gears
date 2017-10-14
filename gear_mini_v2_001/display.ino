@@ -37,8 +37,8 @@ void update_display()
 void manual_auto()
 {
              u8g2_0.setFont(u8g2_font_helvB14_tr);//u8g2_font_inb16_mr);//u8g2_font_inb57_mn)
-           if (configPage1.manual_auto_status == 1){ u8g2_0.drawStr(54,15,"Auto");}
-           if (configPage1.manual_auto_status == 0){ u8g2_0.drawStr(50,15,"Manual");}
+           if ((configPage1.manual_auto_status & B00000001) == 1){ u8g2_0.drawStr(54,15,"Auto");}
+           if ((configPage1.manual_auto_status & B00000001) == 0){ u8g2_0.drawStr(50,15,"Manual");}
 }
 
 void gear_letter()
