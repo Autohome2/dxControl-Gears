@@ -539,19 +539,18 @@ void gearStatus()
                                 currentStatus.current_gear_Status = 20;
                               }   
                       }
-               else if (currentStatus.first_Run == 1)
+                    else if (currentStatus.first_Run == 1)
                       {
                         currentStatus.current_gear_Status = 81;
                       } 
-                       
-          //     else if ((configPage1.manual_auto_status & B00000001) == 1)      //if set to auto      
-          //              {
-          //                if (currentStatus.auto_changed == 0)   // if a auto change has NOT occurred
-          //                    {
-          //                      currentStatus.current_gear_Status = 20;
-          //                    }   
-         //               }    
-                  } 
+                  }     
+               else if ((configPage1.manual_auto_status & B00000001) == 1)      //if set to auto      
+                  {
+                    if (currentStatus.auto_changed == 0)   // if a auto change has NOT occurred
+                      {
+                        currentStatus.current_gear_Status = 20;
+                      }   
+                  }     
                   
            if ((configPage1.manual_auto_status & B00000001) == 0) {currentStatus.dev3 = 88;}
            if ((configPage1.manual_auto_status & B00000001) == 1) {currentStatus.dev3 = 77;}
@@ -571,10 +570,9 @@ void gearStatus()
           break;
         }
         
-     //   return;
   //now if in manual and in drive do up down inputs if enabled
- // if ((configPage1.manual_auto_status & B00000001) == 0)      //if set to manual check up down inputs
- //   {
+  if ((configPage1.manual_auto_status & B00000001) == 0)      //if set to manual check up down inputs
+    {
     if (currentStatus.current_gear_Selected == 20)
         {
           if (configPage1.change_up != 0)           //if up paddle is activated
@@ -638,8 +636,8 @@ void gearStatus()
                     }
                 }
             }   //ends change_down != 0      
-        } //ends current_gear_Status == 10
-   // }       // manual_auto_status == 0
+        } //ends current_gear_Selected == 20
+    }       // manual_auto_status == 0
     
     //now do lockup switching
  //   currentStatus.dev1 = configPage1.lockup_overide;//the pinin from switch

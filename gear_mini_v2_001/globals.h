@@ -260,7 +260,7 @@ byte unused97;
 byte unused98;
 byte unused99;
 uint8_t display_type;
-uint8_t manual_auto_status;
+uint8_t manual_auto_status = 0;
 uint8_t unused102;
 uint8_t unused103;
 byte unused104;

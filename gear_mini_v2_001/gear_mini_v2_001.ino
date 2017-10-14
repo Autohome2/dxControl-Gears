@@ -63,8 +63,8 @@ volatile byte diginchanloop;
 //volatile byte driveoutloop;
 volatile byte EXinchanloop;
 
-  // U8G2_SSD1306_128X64_NONAME_1_4W_HW_SPI u8g2_1(U8G2_R0, /* cs=*/ 7, /* dc=*/ 6, /* reset=*/ 8);
-   U8G2_SH1106_128X64_NONAME_1_4W_HW_SPI u8g2_0(U8G2_R0, /* cs=*/ 7, /* dc=*/ 6, /* reset=*/ 8);
+  // U8G2_SSD1306_128X64_NONAME_1_4W_HW_SPI u8g2_1(U8G2_R0, /* cs=*/ 7, /* dc=*/ 6, /* reset=*/ 8);       //spi on mega2560 mosi == 51, clk(sck) == 52
+   U8G2_SH1106_128X64_NONAME_1_4W_HW_SPI u8g2_0(U8G2_R0, /* cs=*/ 7, /* dc=*/ 6, /* reset=*/ 8);          //spi on mega2560 mosi == 51, clk(sck) == 52
 
 void setup() {
   // put your setup code here, to run once:
