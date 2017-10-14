@@ -11,8 +11,16 @@ The gearbox selection is also made in a similar way with the gearbox config bein
 The unit is fully programmable via Tunerstudio.
 
 Version History
+
 V1.000
+
 Paddle shift with up to eight gears and 8 solenoids.Torque convertor Lockup by manual switch only 
+
 V2.000(Still Beta)
+
 Serial3 link to Speeduino to rear up to 16 data channels.External data channel can be used as input to universal io.
 Placeholders for Vss input for Speed
+
+V2.001(beta test only)
+
+Add in gear flash display when mcu is booted with selector in gear.
