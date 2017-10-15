@@ -71,6 +71,7 @@
   
  */
 #define maincommand  'r'    // the command to send to the Speeduino
+#define commandletterr  'r'
 #define tsCanId  0          // this is the tunerstudio canID for the device you are requesting data from , this is 0 for the main ecu in the system which is usually the speeduino ecu . 
                               // this value is set in Tunerstudio when configuring your Speeduino
 uint16_t realtime_offset = 4;  // the offset of the realtime data to start reading from
@@ -86,12 +87,13 @@ this is 1 byte long.
 if you set realtime_bytes = 2
 then you will also be sent offset 9 too which is currentStatus.O2
  */
-const unsigned char simple_remote_signature[]    = "speeduino_GearControl 201710"; 
-const unsigned char simple_remote_RevNum[] = "speeduino 201710-GearControl V1.000";
+const unsigned char simple_remote_signature[]    = "speeduino_GearControl 201709"; 
+const unsigned char simple_remote_RevNum[] = "speeduino 201709-GearControl V0.001";
 uint8_t thistsCanId = 4;    // this is the tunerstudio canId of this device
 const uint8_t data_structure_version = 2; //This identifies the data structure when reading / writing.
 const uint8_t page_1_size = 128;
 const uint16_t page_2_size = 256;
+const uint8_t page_3_size = 128;
 
 //Handy bitsetting macros
 #define BIT_SET(a,b) ((a) |= (1<<(b)))
@@ -111,40 +113,42 @@ volatile byte LOOP_TIMER;
 //The status struct contains the current values for all 'live' variables
 //In current version this is x bytes
 struct statuses {
- volatile byte secl; //Continous
- volatile byte systembits ;
- volatile unsigned int loopsPerSecond ;
+  volatile byte secl; //Continous
+  volatile byte systembits ;
+  volatile unsigned int loopsPerSecond ;
  volatile  uint16_t freeRAM ;
  volatile uint8_t currentPage;
  volatile uint8_t testIO_hardware;
- volatile bool first_Run = 1; // 1 if first loop cycle 0 if not 
 // uint8_t digInState[16];             //0 is off else on(set by direct pin read or interupts)
  uint16_t currentInputvalue[2];      //holds the analog input value for each conditional input , [0] first condition and [1] holds the second
  uint16_t currentInputvalueCond[3];  //holds the input test condition flags for each test condition , [0] holds first, [1] holds the second and [2] holds the total pass
  uint8_t condition_pass[48];          // array stores pass/fail flags for the one or two(if selected) condition checks
  uint8_t condition_pass_last[48];     // array stores pass/fail flags for the one or two(if selected) condition checks
  uint8_t OutputPort[16];             //output port condition status flags
- volatile uint16_t digOut;
- volatile uint16_t digOut_Active; // bits show if channel is used by board selected when pin value is > 0
+ volatile uint16_t digOut;         //bits of outputs active == 1
+ volatile uint16_t digOut_Active; // bits show if channel is used by board selected when pin value is < 255
  volatile uint16_t digOut_2;
- volatile uint16_t digOut_2_Active; // bits show if channel is used by board selected when pin value is > 0
- volatile uint16_t digIn;
+ volatile uint16_t digOut_2_Active; // bits show if channel is used by board selected when pin value is < 255
+ volatile uint16_t digIn;         // bits store Raw input pin senseing
  volatile uint16_t digIn_Active;
- volatile uint16_t Analog[16];
- volatile uint16_t Analog_Active;
- volatile uint8_t change_up_current;
- volatile uint8_t change_up_last;
- volatile uint8_t change_down_current;
- volatile uint8_t change_down_last;
+ volatile uint16_t Analog[16];      //stores analog value read
+ volatile uint16_t Analog_Active;   //bits show if analog channel is used by board selected
+  volatile uint16_t EXin[16];      // 16bit value data array for external analog(0-15)
+  
+ volatile uint8_t change_up_current;          //used for paddle shift debounce
+ volatile uint8_t change_up_last;             // as above
+ volatile uint8_t change_down_current;        // as above
+ volatile uint8_t change_down_last;           // as above
  volatile uint8_t paddleshift_used = 0;       // set once paddle shift has been used, cleared once put into a gear or P or N or R
- //volatile uint8_t manual_changed;
  volatile uint8_t auto_changed;
  volatile uint8_t GearNow;                  // the numeric gear when forward ie 1-8
  volatile uint8_t current_gear_Status = 0;      //the actual gear the box is in
  volatile uint8_t old_gear_Status = 1;          //the last actual gear the box was in
  volatile uint8_t current_gear_Selected = 0;    //the gear selected by the lever
  volatile uint8_t old_gear_Selected = 1;       //the last gear selected by the lever
-  
+ volatile uint16_t speedo;
+ volatile uint32_t odometer = 121345; 
+ volatile uint8_t *odometer_byte = (uint8_t*)&odometer;    //odometer_byte[3];           //odometer reading broken into byte sized chunks , [0] is lsb ,[4] is msb 
  volatile uint16_t dev1;
  volatile uint16_t dev2;
  volatile uint16_t dev3;
@@ -159,8 +163,9 @@ struct __attribute__ ( ( packed ) ) config1 {
 uint16_t master_controller_address:10;
 byte pinLayout;
 byte speeduinoConnection ;
-byte unused4;
-byte unused5;
+uint16_t speeduinoBaseCan:10 ;       //speeduino base can address
+//byte unused4;
+//byte unused5;
 byte unused6;
 byte unused7;
 byte unused8;
@@ -352,6 +357,78 @@ byte unused2_254;
 byte unused2_255; 
 };
 
+//Page 3 of the config - See the ini file for further reference
+//this is laid out as first the byte size data then the words
+
+struct __attribute__ ( ( packed ) ) config3 {
+uint16_t exinsel;                 // External input channel enabled bit flags
+uint16_t INdata_from_Can[16];     // can address of source of data 0x100(256dec) to 0x7FF(2047dec) as 0 dec - 535 dec
+byte data_from_offset[16];        // offset of data source 0 - 255
+byte num_bytes[16];               // number of bytes length of data source 0,1,or 2
+byte unused3_66;
+byte unused3_67;
+byte unused3_68;
+byte unused3_69;
+byte unused3_70;
+byte unused3_71; 
+byte unused3_72;
+byte unused3_73;
+byte unused3_74;
+byte unused3_75;
+byte unused3_76;
+byte unused3_77;
+byte unused3_78;
+byte unused3_79;
+byte unused3_80;
+byte unused3_81;
+byte unused3_82;
+byte unused3_83;
+byte unused3_84;
+byte unused3_85;
+byte unused3_86;
+byte unused3_87;
+byte unused3_88;
+byte unused3_89;
+byte unused3_90;
+byte unused3_91;
+byte unused3_92;
+byte unused3_93;
+byte unused3_94;
+byte unused3_95;
+byte unused3_96;
+byte unused3_97;
+byte unused3_98;
+byte unused3_99;
+uint8_t unused3_100;
+uint8_t unused3_101;
+uint8_t unused3_102;
+uint8_t unused3_103;
+byte unused3_104;
+byte unused3_105;
+byte unused3_106;
+byte unused3_107;
+byte unused3_108;
+byte unused3_109;
+byte unused3_110;
+byte unused3_111;
+byte unused3_112;
+byte unused3_113;
+byte unused3_114;
+byte unused3_115;
+byte unused3_116;
+byte unused3_117;
+byte unused3_118;
+byte unused3_119;
+byte unused3_120 = 200;
+byte unused3_121;
+byte unused3_122;
+byte unused3_123;
+byte unused3_124;
+byte unused3_125;
+byte unused3_126 = 226;
+byte unused3_127 = 227;  
+};
+
  //declare io pins
 byte pinOut[33]; //digital outputs array is +1 as pins start at 1 not 0
 
@@ -378,6 +455,7 @@ volatile uint8_t activestate[32] ;      //set via bit 5 on bootup, 0 == active l
 extern struct statuses currentStatus; // from passthrough.ino
 extern struct config1 configPage1;  
 extern struct config2 configPage2;
+extern struct config3 configPage3;
 
 //extern unsigned long currentLoopTime; //The time the current loop started (uS)
 //extern unsigned long previousLoopTime; //The time the previous loop started (uS)

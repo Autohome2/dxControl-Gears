@@ -219,12 +219,59 @@ void setGearboxConfig()
             rev_gear = 1;
             
       break;
+
+            case 4: //4L80E
+            //outputs
+            shiftsolenoid[1] = 1;            // shift shiftsolenoid active == 1 else not used == 255
+            shiftsolenoid[2] = 1;
+            shiftsolenoid[3] = 255;
+            shiftsolenoid[4] = 255;
+            shiftsolenoid[5] = 255;
+            shiftsolenoid[6] = 255;
+            shiftsolenoid[7] = 255;
+            shiftsolenoid[8] = 255;
+            lockup_solenoid[1] = 1;     //
+            lockup_solenoid[2] = 255;     // lockup solenoid pin active
+            starter_inhibit = 1;        //inhibit relay use enable/disable
+            spareOut[12] = 255;
+            spareOut[13] = 255;
+            spareOut[14] = 255;
+            spareOut[15] = 255;
+            spareOut[16] = 255;
+            spareOut[17] = 255;
+            spareOut[18] = 255;
+            spareOut[19] = 255;
+            spareOut[20] = 255;
+            spareOut[21] = 255;
+            spareOut[22] = 255;
+            spareOut[23] = 255;
+            spareOut[24] = 255;
+            spareOut[25] = 255;
+            spareOut[26] = 255;
+            spareOut[27] = 255;
+            spareOut[28] = 255;
+            spareOut[29] = 255;
+            spareOut[30] = 255;
+            spareOut[31] = 255;
+            spareOut[32] = 255;
+            //shift pattern
+            gear[1] = 3;                // solenoid pattern 
+            gear[2] = 2;                // solenoid pattern 
+            gear[3] = 0;                // solenoid pattern 
+            gear[4] = 1;
+            gear[5] = 255;
+            gear[6] = 255;
+            gear[7] = 255;
+            gear[8] = 255;
+            rev_gear = 1;
+            
+      break;
     }
 }
 
 void setPinMapping(byte boardID)
 {
-  switch (boardID)
+    switch (boardID)
   {
     case 0:   //pro-mini demo V0.001
       pinOut[1] = 2; //
@@ -286,40 +333,40 @@ void setPinMapping(byte boardID)
       pinOut[2] = 35; //
       pinOut[3] = 37; //
       pinOut[4] = 39; //
-      pinOut[5] = 41; //
-      pinOut[6] = 43; //
+      pinOut[5] = 255;// 41; //
+      pinOut[6] = 255;//43; //
       pinOut[7] = 255; //
       pinOut[8] = 255; //
       pinOut[9] = 255; //
       pinOut[10] = 255; //
       pinOut[11] = 255; //
       pinOut[12] = 255; //
-      pinOut[13] = 13; //
+      pinOut[13] = 255;//13; //
       pinOut[14] = 255; //
       pinOut[15] = 255; //
       pinOut[16] = 255; //
 
       pinIn[1] = 28;
       pinIn[2] = 30;
-      pinIn[3] = 32;
+      pinIn[3] = 255;//32;
       pinIn[4] = 34;
       pinIn[5] = 36;
       pinIn[6] = 38;
-      pinIn[7] = 40;
-      pinIn[8] = 42;
-      pinIn[9] = 44;
-      pinIn[10] = 46;
-      pinIn[11] = 48;
+      pinIn[7] = 255;//40;
+      pinIn[8] = 255;//42;
+      pinIn[9] = 255;//44;
+      pinIn[10] = 255;//46;
+      pinIn[11] = 255;//48;
       pinIn[12] = 255;
       pinIn[13] = 255;
       pinIn[14] = 255;
       pinIn[15] = 255;
       pinIn[16] = 255;
              
-      pinAin[1] = A0;
-      pinAin[2] = A1;
-      pinAin[3] = A2;
-      pinAin[4] = A3;
+      pinAin[1] = 255;//A0;
+      pinAin[2] = 255;//A1;
+      pinAin[3] = 255;//A2;
+      pinAin[4] = 255;//A3;
       pinAin[5] = 255;
       pinAin[6] = 255;
       pinAin[7] = 255;
@@ -657,6 +704,7 @@ void setUsageflags()
 
             if(BIT_CHECK(configPage1.FunctionActive, (10)) == 1){gear_port_Enabled[(boxOutput[10])] = 1; }
 
+//active state holds if the outout is active high or active low
             activestate[0] = configPage1.shiftsolenoid_1 & B00100000;
             activestate[1] = configPage1.shiftsolenoid_2 & B00100000;
             activestate[2] = configPage1.shiftsolenoid_3 & B00100000;
@@ -670,5 +718,6 @@ void setUsageflags()
             activestate[10] = configPage1.starter_inhibit_out & B00100000;
 
 }
+
 
 

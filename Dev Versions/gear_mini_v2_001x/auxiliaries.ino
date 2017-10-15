@@ -233,7 +233,6 @@ void selectorInput()
              if (BIT_CHECK(currentStatus.digIn,(((configPage1.park_in)-1) & B00011111)) ==  inpin2binary[(((configPage1.park_in)-1) & B00011111)])
                 {
                   currentStatus.current_gear_Selected = 11;
-                  currentStatus.first_Run = 0;
                 }    
             }
             
@@ -246,11 +245,10 @@ void selectorInput()
             //else
             //  {  
                 currentStatus.current_gear_Selected = 10;
-                currentStatus.first_Run = 0;
             //  }  
           }
       
-        if  (BIT_CHECK(currentStatus.digIn,(configPage1.drive_in & B00011111)) ==  inpin2binary[configPage1.drive_in & B00011111])      //
+       if  (BIT_CHECK(currentStatus.digIn,(configPage1.drive_in & B00011111)) ==  inpin2binary[(configPage1.drive_in & B00011111)])      //
           {
            // if(currentStatus.current_gear_Selected != 0)
            //   { 
@@ -262,7 +260,7 @@ void selectorInput()
            //   }
           }
       
-        if (BIT_CHECK(currentStatus.digIn, (configPage1.reverse_in & B00011111)) == inpin2binary[configPage1.reverse_in & B00011111])
+       if (BIT_CHECK(currentStatus.digIn, (configPage1.reverse_in & B00011111)) == inpin2binary[(configPage1.reverse_in & B00011111)])
           {
           //  if(currentStatus.current_gear_Selected != 0)
           //    { 
@@ -429,21 +427,21 @@ void gearOutput()
           break;
 
           case 30:    //reverse
-              BIT_CLEAR(currentStatus.digOut,((boxOutput[10])-1));   //disable starter
-              for (byte sO = 1; sO < 9 ; sO++)
-                {                     
-                  if (shiftsolenoid[sO] < 255)          //if shiftsolenoid[x] is in use
-                  {
-                   if ((bitRead(rev_gear,(sO-1))) == 1)  //((gear[1] & B00000001) == 1)  
-                     {
-                       BIT_SET(currentStatus.digOut,((boxOutput[(sO-1)])-1));
-                     }
-                  else
-                     {
-                       BIT_CLEAR(currentStatus.digOut,((boxOutput[(sO-1)])-1));                                
-                     }
-                  }        
-                }
+                 BIT_CLEAR(currentStatus.digOut,((boxOutput[10])-1));   //disable starter
+                 for (byte sO = 1; sO < 9 ; sO++)
+                    {                     
+                      if (shiftsolenoid[sO] < 255)          //if shiftsolenoid[x] is in use
+                        {
+                          if ((bitRead(rev_gear,(sO-1))) == 1)  //((gear[1] & B00000001) == 1)  
+                            {
+                              BIT_SET(currentStatus.digOut,((boxOutput[(sO-1)])-1));
+                            }
+                          else
+                            {
+                              BIT_CLEAR(currentStatus.digOut,((boxOutput[(sO-1)])-1));                                
+                            }
+                        }        
+                    }
           break;
     }
 
@@ -519,45 +517,37 @@ void gearStatus()
           
           case 10:    //neutral
               currentStatus.current_gear_Status = 10;
-              currentStatus.paddleshift_used = 0;              
-              //currentStatus.manual_changed = 0;
+              currentStatus.paddleshift_used = 0;
               currentStatus.GearNow = 0;
           break;
 
           case 11:    // park
               currentStatus.current_gear_Status = 11;
-              currentStatus.paddleshift_used = 0;              
-              //currentStatus.manual_changed = 0;
+              currentStatus.paddleshift_used = 0;
               currentStatus.GearNow = 0;
           break;
 
           case 20:  //drive
-               if ((configPage1.manual_auto_status & B00000001) == 0)      //if set to manual 
-                  {
-                    if ((currentStatus.current_gear_Status == 10) || ((currentStatus.current_gear_Status >= 1)&&(currentStatus.current_gear_Status <=8)) || (currentStatus.current_gear_Status == 80) )
-                      {
+           //    if ((currentStatus.current_gear_Status == 10) || (currentStatus.current_gear_Status == 20) || ((currentStatus.current_gear_Status >= 1)&&(currentStatus.current_gear_Status <=8)) || (currentStatus.current_gear_Status == 80) )
+           //       {
+          //          if (configPage1.manual_auto_status == 0)      //if set to manual 
+          //              {
+           currentStatus.dev3 = configPage1.manual_auto_status;
+           currentStatus.dev4 = currentStatus.paddleshift_used;
+            
                           if (currentStatus.paddleshift_used == 0)   // if a manual change has NOT occurred
                               {
                                 currentStatus.current_gear_Status = 20;
                               }   
-                      }
-                    else if (currentStatus.first_Run == 1)
-                      {
-                        currentStatus.current_gear_Status = 81;
-                      } 
-                  }     
-               else if ((configPage1.manual_auto_status & B00000001) == 1)      //if set to auto      
-                  {
-                    if (currentStatus.auto_changed == 0)   // if a auto change has NOT occurred
-                      {
-                        currentStatus.current_gear_Status = 20;
-                      }   
-                  }     
-                  
-           if ((configPage1.manual_auto_status & B00000001) == 0) {currentStatus.dev3 = 88;}
-           if ((configPage1.manual_auto_status & B00000001) == 1) {currentStatus.dev3 = 77;}
-           //currentStatus.dev4 = (configPage1.manual_auto_status & B00000001);  
-                
+           //             }
+          //     else if (configPage1.manual_auto_status == 1)      //if set to auto      
+          //              {
+          //                if (currentStatus.auto_changed == 0)   // if a auto change has NOT occurred
+          //                    {
+          //                      currentStatus.current_gear_Status = 20;
+          //                    }   
+          //              }    
+            //      } 
           break;
 
           case 30:    //reverse
@@ -565,16 +555,13 @@ void gearStatus()
                 {
                   currentStatus.current_gear_Status = 30;
                 }
-         else if (currentStatus.first_Run == 1)
-                {
-                  currentStatus.current_gear_Status = 81;
-                }
           break;
         }
         
+     //   return;
   //now if in manual and in drive do up down inputs if enabled
-  if ((configPage1.manual_auto_status & B00000001) == 0)      //if set to manual check up down inputs
-    {
+ // if (configPage1.manual_auto_status == 0)      //if set to manual check up down inputs
+ //   {
     if (currentStatus.current_gear_Selected == 20)
         {
           if (configPage1.change_up != 0)           //if up paddle is activated
@@ -639,7 +626,7 @@ void gearStatus()
                 }
             }   //ends change_down != 0      
         } //ends current_gear_Status == 10
-    }       // manual_auto_status == 0
+   // }       // manual_auto_status == 0
     
     //now do lockup switching
  //   currentStatus.dev1 = configPage1.lockup_overide;//the pinin from switch
@@ -657,7 +644,9 @@ void gearStatus()
  //   currentStatus.dev3 = 44;
             BIT_CLEAR(currentStatus.digOut,((boxOutput[8])-1));                                
           }
-      }    
+      }  
+
+      currentStatus.dev2 =  currentStatus.current_gear_Status;
 }
 
 void stepgear(uint8_t updwn)
@@ -680,8 +669,7 @@ void stepgear(uint8_t updwn)
                  {
                   currentStatus.current_gear_Status = 1;    //make gear status "1"
                   currentStatus.GearNow = 1;
-                  currentStatus.paddleshift_used = 1;       //set flag to show gear has changed                  
-                  //currentStatus.manual_changed = 1;       //set flag to show gear has changed
+                  currentStatus.paddleshift_used = 1;       //set flag to show gear has changed
                  }
               else if (currentStatus.current_gear_Status < 8)
                       {
@@ -689,7 +677,7 @@ void stepgear(uint8_t updwn)
                             {
                               currentStatus.current_gear_Status ++;
                               currentStatus.GearNow ++;
-                              //currentStatus.manual_changed = 1;
+                              //currentStatus.paddleshift_used = 1;
                             }
                       }      
         break;

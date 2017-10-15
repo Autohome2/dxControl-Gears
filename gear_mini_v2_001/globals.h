@@ -87,8 +87,8 @@ this is 1 byte long.
 if you set realtime_bytes = 2
 then you will also be sent offset 9 too which is currentStatus.O2
  */
-const unsigned char simple_remote_signature[]    = "speeduino_GearControl 201709"; 
-const unsigned char simple_remote_RevNum[] = "speeduino 201709-GearControl V0.001";
+const unsigned char simple_remote_signature[]    = "speeduino_GearControl 201710"; 
+const unsigned char simple_remote_RevNum[] = "speeduino 201710-GearControl V2.001";
 uint8_t thistsCanId = 4;    // this is the tunerstudio canId of this device
 const uint8_t data_structure_version = 2; //This identifies the data structure when reading / writing.
 const uint8_t page_1_size = 128;

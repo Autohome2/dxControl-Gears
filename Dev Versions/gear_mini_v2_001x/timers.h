@@ -31,7 +31,7 @@ Hence we will preload the timer with 131 cycles to leave 125 until overflow (1ms
 #elif defined(CORE_STM32)
   void oneMSInterval();
 #endif  
-  
+
 volatile int loop33ms;
 volatile int loop40ms;
 volatile int loop66ms;  
