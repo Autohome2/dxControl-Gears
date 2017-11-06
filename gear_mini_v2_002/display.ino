@@ -83,7 +83,11 @@ void gear_letter()
          case 20:
               u8g2_0.drawStr(0,63,"D");
          break;
-           
+
+         case 21:
+              u8g2_0.drawStr(0,63,"S");
+         break;
+
          case 30:
               u8g2_0.drawStr(0,63,"R");
          break;
@@ -202,6 +206,10 @@ void selector_line()
 
                   case 20:
                        u8g2_0.drawStr(100,60,"D");
+                  break;
+
+                  case 21:
+                       u8g2_0.drawStr(100,60,"S");
                   break;
 
                   case 30:

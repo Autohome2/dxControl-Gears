@@ -6,7 +6,8 @@ The firmware supports up to 8 forward gears controlled by up to 8 selection sole
 Initially a manual change only standalone unit , later improvements will be link to speeduino , Vss sensors, GPS input ,pwm outputs ,fully automatic operation and CANBUS connectivity etc.
 
 IO pins are selected via board configurations in the same way as GPIO does. 
-The gearbox selection is also made in a similar way with the gearbox config being defined in the utils file.Pre defined gearboxes are selected via TS menu. Curent support is for the A340E with 5r55 and A4ODE support planned to follow ,although any gearbox could be included if defined.
+The gearbox selection is also made in a similar way with the gearbox config being defined in the utils file.Pre defined gearboxes are selected via TS menu. 
+Current support is for the A340E with 5r55, A4ODE, 4L80e, and F4A33/w4A32/w4A33 support planned to follow ,although any gearbox could be included if defined.
 
 The unit is fully programmable via Tunerstudio.
 
@@ -21,6 +22,12 @@ V2.000(Still Beta)
 Serial3 link to Speeduino to rear up to 16 data channels.External data channel can be used as input to universal io.
 Placeholders for Vss input for Speed
 
-V2.001(beta test only)
+V2.001
 
 Add in gear flash display when mcu is booted with selector in gear.
+
+V2.002
+
+Added F4A33/w4A32/w4A33 gearbox type.
+Added Sport position for gear lever selector along with seperate inputs for change up and change down via the gear selector lever .
+Implemented modular display types , selected at compile time in globals.h

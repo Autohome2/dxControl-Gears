@@ -399,15 +399,15 @@ void setPinMapping(byte boardID)
 
       pinIn[1] = 28;
       pinIn[2] = 30;
-      pinIn[3] = 255;//32;
+      pinIn[3] = 32;
       pinIn[4] = 34;
       pinIn[5] = 36;
       pinIn[6] = 38;
-      pinIn[7] = 255;//40;
-      pinIn[8] = 255;//42;
-      pinIn[9] = 255;//44;
-      pinIn[10] = 255;//46;
-      pinIn[11] = 255;//48;
+      pinIn[7] = 40;
+      pinIn[8] = 42;
+      pinIn[9] = 44;
+      pinIn[10] = 46;
+      pinIn[11] = 48;
       pinIn[12] = 255;
       pinIn[13] = 255;
       pinIn[14] = 255;

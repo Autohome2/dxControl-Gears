@@ -260,6 +260,11 @@ void selectorInput()
                 currentStatus.current_gear_Selected = 20;
            //   }
           }
+
+       if  (BIT_CHECK(currentStatus.digIn,(configPage1.sport_in & B00011111)) ==  inpin2binary[(configPage1.sport_in & B00011111)])      //
+          {
+                currentStatus.current_gear_Selected = 21;
+          }
       
        if (BIT_CHECK(currentStatus.digIn, (configPage1.reverse_in & B00011111)) == inpin2binary[(configPage1.reverse_in & B00011111)])
           {
@@ -531,7 +536,7 @@ void gearStatus()
           case 20:  //drive
                if ((configPage1.manual_auto_status & B00000001) == 0)      //if set to manual 
                   {
-                    if ((currentStatus.current_gear_Status == 10) || ((currentStatus.current_gear_Status >= 1)&&(currentStatus.current_gear_Status <=8)) || (currentStatus.current_gear_Status == 80) )
+                    if ((currentStatus.current_gear_Status == 10)||(currentStatus.current_gear_Status == 21) || ((currentStatus.current_gear_Status >= 1)&&(currentStatus.current_gear_Status <=8)) || (currentStatus.current_gear_Status == 80) )
                       {
                           if (currentStatus.paddleshift_used == 0)   // if a manual change has NOT occurred
                               {
@@ -551,11 +556,41 @@ void gearStatus()
                       }   
                   }     
                   
-           if ((configPage1.manual_auto_status & B00000001) == 0) {currentStatus.dev3 = 88;}
-           if ((configPage1.manual_auto_status & B00000001) == 1) {currentStatus.dev3 = 77;}
-           currentStatus.dev4 = (configPage1.manual_auto_status & B00000001);  
+           //if ((configPage1.manual_auto_status & B00000001) == 0) {currentStatus.dev3 = 88;}
+           //if ((configPage1.manual_auto_status & B00000001) == 1) {currentStatus.dev3 = 77;}
+           //currentStatus.dev4 = (configPage1.manual_auto_status & B00000001);  
                 
           break;
+
+          case 21:  //sport
+               if ((configPage1.manual_auto_status & B00000001) == 0)      //if set to manual 
+                  {
+                    if ((currentStatus.current_gear_Status == 20) || ((currentStatus.current_gear_Status >= 1)&&(currentStatus.current_gear_Status <=8)) || (currentStatus.current_gear_Status == 80) )
+                      {   //if gearstatus was D, 1-8 or E(error)
+                          if (currentStatus.paddleshift_used == 0)   // if a manual change has NOT occurred
+                              {
+                                currentStatus.current_gear_Status = 21;   //make gearstatus S(sport)
+                              }   
+                      }
+                    else if (currentStatus.first_Run == 1)
+                      {
+                        currentStatus.current_gear_Status = 81;           // was in sport when booted up so error 81(flash in gear display)
+                      } 
+                  }     
+               else if ((configPage1.manual_auto_status & B00000001) == 1)      //if set to auto      
+                  {
+                    if (currentStatus.auto_changed == 0)   // if a auto change has NOT occurred
+                      {
+                        currentStatus.current_gear_Status = 21;
+                      }   
+                  }     
+                  
+           //if ((configPage1.manual_auto_status & B00000001) == 0) {currentStatus.dev3 = 88;}
+           //if ((configPage1.manual_auto_status & B00000001) == 1) {currentStatus.dev3 = 77;}
+           //currentStatus.dev4 = (configPage1.manual_auto_status & B00000001);  
+                
+          break;
+
 
           case 30:    //reverse
                if ((currentStatus.current_gear_Status == 11) || (currentStatus.current_gear_Status == 10))
@@ -572,7 +607,7 @@ void gearStatus()
   //now if in manual and in drive do up down inputs if enabled
   if ((configPage1.manual_auto_status & B00000001) == 0)      //if set to manual check up down inputs
     {
-    if (currentStatus.current_gear_Selected == 20)
+    if ((currentStatus.current_gear_Selected == 20)||(currentStatus.current_gear_Selected == 21))
         {
           if ((configPage1.paddle_change_up != 0)||(configPage1.sport_change_up !=0))           //if up paddle or sport up is activated
             {
