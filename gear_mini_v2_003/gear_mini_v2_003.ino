@@ -27,12 +27,11 @@ A full copy of the license may be found in the speeduino projects root directory
 #include <Wire.h>
 
 #include <mcp_can.h>
-  #define CAN0_INT   2    // Set INT to pin 2
-  #define CAN1_INT   3    // Set INT to pin 3
-  MCP_CAN CAN0(11);      // Set CS to pin 11
-  MCP_CAN CAN1(12);    //  Set CS to pin 12
+  MCP_CAN CAN0(CAN0_CS);      // Set CS to pin 11
+  MCP_CAN CAN1(CAN1_CS);      //  Set CS to pin 12
 
 #include <U8g2lib.h>
+
 
 //configure spi memory options
 
@@ -119,16 +118,8 @@ volatile byte diginchanloop;
 //volatile byte driveoutloop;
 volatile byte EXinchanloop;
 
-//configure display initialise options
-//#if defined USE_SSD1106
-//   U8G2_SSD1306_128X64_NONAME_1_4W_HW_SPI u8g2_1(U8G2_R0, /* cs=*/ DISPLAY_CS, /* dc=*/ DISPLAY_DC, /* reset=*/ DISPLAY_RESET);   
-//#endif  
-//#if defined USE_SSH1106
-//   U8G2_SH1106_128X64_NONAME_1_4W_HW_SPI u8g2_0(U8G2_R0, /* cs=*/ DISPLAY_CS, /* dc=*/ DISPLAY_DC, /* reset=*/ DISPLAY_RESET);    
-//#endif
-
 //configure screen 1 display initialise options
-#if defined DISP1_ACTIVE
+#if DISP1_ACTIVE == 1
     #if defined DISP1_USE_SSD1106_I2C
         U8G2_SSD1306_128X64_NONAME_1_HW_I2C u8g2_1(U8G2_R0, /* reset=*/ U8X8_PIN_NONE);     //use U8X8_PIN_NONE if reset is not used
     #elif defined DISP1_USE_SSD1306_I2C 
@@ -137,11 +128,13 @@ volatile byte EXinchanloop;
         U8G2_SSD1306_128X64_NONAME_1_4W_HW_SPI u8g2_1(U8G2_R0, /* cs=*/ DISPLAY1_CS, /* dc=*/ DISPLAY1_DC, /* reset=*/ DISPLAY1_RESET);     
     #elif defined DISP1_USE_SSH1106_SPI
         U8G2_SH1106_128X64_NONAME_1_4W_HW_SPI u8g2_1(U8G2_R0, /* cs=*/ DISPLAY1_CS, /* dc=*/ DISPLAY1_DC, /* reset=*/ DISPLAY1_RESET);    
+    #elif defined DISP1_USE_4x20_I2C_EXP
+        
     #endif
 #endif    
 
 //configure screen 2 display initialise options
-#if defined DISP2_ACTIVE
+#if DISP2_ACTIVE == 1
     #if defined DISP2_USE_SSD1106_I2C
         U8G2_SSD1306_128X64_NONAME_1_HW_I2C u8g2_2(U8G2_R0, /* reset=*/ U8X8_PIN_NONE); 
     #elif defined DISP2_USE_SSD1306_I2C 
@@ -149,7 +142,9 @@ volatile byte EXinchanloop;
     #elif defined DISP2_USE_SSD1106_SPI
         U8G2_SSD1306_128X64_NONAME_1_4W_HW_SPI u8g2_2(U8G2_R0, /* cs=*/ DISPLAY2_CS, /* dc=*/ DISPLAY2_DC, /* reset=*/ DISPLAY2_RESET);     
     #elif defined DISP2_USE_SSH1106_SPI
-        U8G2_SH1106_128X64_NONAME_1_4W_HW_SPI u8g2_2(U8G2_R0, /* cs=*/ DISPLAY2_CS, /* dc=*/ DISPLAY2_DC, /* reset=*/ DISPLAY2_RESET);    
+        U8G2_SH1106_128X64_NONAME_1_4W_HW_SPI u8g2_2(U8G2_R0, /* cs=*/ DISPLAY2_CS, /* dc=*/ DISPLAY2_DC, /* reset=*/ DISPLAY2_RESET); 
+    #elif defined DISP2_USE_4x20_I2C_EXP
+           
     #endif
 #endif 
 

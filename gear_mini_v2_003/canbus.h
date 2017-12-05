@@ -1,6 +1,28 @@
 #ifndef CANBUS_H
 #define CANBUS_H
 
+/*--------------- canbus config options -------------- */
+/* CAN 0 */
+#define CAN0_ACTIVE     0         // 0 == DISABLED , 1 == ENABLED
+#define CAN0_RATE       500       // eg 500 == 500kbps
+#define CAN0_STD_EXT    0         // 0 == STD 11bit , 1 == EXT 29bit
+#define CAN0_INT        2         // Set INT to pin 2
+#define CAN0_CS         11        // Set CS to pin 11
+
+/* CAN 1 */
+#define CAN1_ACTIVE     0         // 0 == DISABLED , 1 == ENABLED
+#define CAN1_RATE       500       // eg 500 == 500kbps
+#define CAN1_STD_EXT    0         // 0 == STD 11bit , 1 == EXT 29bit
+#define CAN1_INT        3         // Set INT to pin 3
+#define CAN1_CS         12        // Set CS to pin 12
+
+/* OBD2 */
+ #define OBD_ACTIVE   1           // 0 == DISABLED , 1 == ENABLED
+ #define OBD_RATE     500         // eg 500 == 500kbps
+ #define OBD_CANPORT  1           // 0 == use CAN0 , 1 == use CAN1
+
+/*-----------------------------------------------------*/
+
 void CAN0_INT_routine();
 void CAN1_INT_routine();
 void initialiseCAN0();
@@ -27,8 +49,5 @@ void obd_response(byte therequest);
   uint32_t obdcalcF32;    //used in calcs 
   uint16_t obdcalcG16;    //used in calcs
   uint16_t obdcalcH16;    //used in calcs  
-  
- #define OBD_ACTIVE   1           //set to 0 or 1 to disable/enable
- #define OBD_CANPORT  1           //set to the can port to be used(0 or 1)
  
 #endif

@@ -1,24 +1,31 @@
-//void configure_display_type()
-//{
-//  u8g2_0.begin();       
-//}
 
 void initialise_display()
 {
-#if defined DISP1_ACTIVE 
-    if (DISP1_I2C_ROUTE !=0){u8g2_1.setI2CAddress((DISP1_I2C_ROUTE*2));}
+  #if DISP1_ACTIVE == 1 
+    if ((DISP1_SPI_I2C == 1) && (DISP1_ADDRESS !=0)){u8g2_1.setI2CAddress(DISP1_ADDRESS);}        //if i2c is selected , set i2c address of display if specified
     u8g2_1.begin();
-#endif    
+  #endif    
 
-#if defined DISP2_ACTIVE
-    if (DISP2_I2C_ROUTE !=0){u8g2_2.setI2CAddress((DISP2_I2C_ROUTE*2));}
+  #if DISP2_ACTIVE == 1
+    if ((DISP2_SPI_I2C == 1) && (DISP2_ADDRESS !=0)){u8g2_2.setI2CAddress(DISP2_ADDRESS);}       //if i2c is selected , set i2c address of display if specified
     u8g2_2.begin();
-#endif
+  #endif
+}
+
+
+void tcaselect(uint8_t i, uint8_t dispnum)
+{
+  if (i > 7) return;
+  if (dispnum == 1)  {Wire.beginTransmission(DISP1_I2C_ROUTE);}
+  else if (dispnum == 2)  {Wire.beginTransmission(DISP2_I2C_ROUTE);}
+  Wire.write(1 << i);
+  Wire.endTransmission();  
 }
 
 void update_display()
 {
-  #if defined DISP1_ACTIVE  //this is the main or master screen!
+  #if DISP1_ACTIVE == 1  //this is the main or master screen!
+    if ((DISP1_SPI_I2C == 1) && (DISP1_ADDRESS !=0)){tcaselect(DISP1_ROUTE_OUT,1);}
        if ((currentStatus.current_gear_Status != currentStatus.old_gear_Status)||(currentStatus.current_gear_Selected != currentStatus.old_gear_Selected)|| (currentStatus.current_gear_Status == 81))
         { 
          u8g2_1.firstPage();
@@ -37,7 +44,8 @@ void update_display()
         }
   #endif
 
-#if defined DISP2_ACTIVE  
+#if DISP2_ACTIVE == 1  
+  if ((DISP2_SPI_I2C == 1) && (DISP2_ADDRESS !=0)){tcaselect(DISP2_ROUTE_OUT,2);}
       u8g2_2.firstPage();
       do {
           u8g2_2.setFont(u8g2_font_logisoso58_tr);
